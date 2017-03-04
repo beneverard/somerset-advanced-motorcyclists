@@ -51,23 +51,13 @@ $breakpoints: (
 
 $fonts: (
     primary: (
-        family: 'sans-serif',
+        family: '"jaf-domus"',
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
             regular: 400,
 			semibold: 600,
             bold: 700
         ),
-        typekit: false
-    ),
-    secondary: (
-        family: 'sans-serif',
-        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        weights: (
-            regular: 400,
-			semibold: 600,
-            bold: 700
-        ),
-        typekit: false
+        typekit: true
     )
 );
