@@ -30,7 +30,7 @@ th {
 
 	@include mq(S) {
 		@include font-size(13, 16, 22);
-		@include font('secondary', 'bold');
+		@include font('primary', 'bold');
 		background-color: color('black');
 		padding: 8px;
 		display: table-cell;

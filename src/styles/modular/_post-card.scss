@@ -88,7 +88,7 @@ This is the default card object that links to a news post.
 
 .post-card__date {
 	@include font-size(14, 18, 20);
-	@include font('secondary');
+	@include font('primary');
 	color: color('black');
 
 	display: block;

@@ -112,7 +112,7 @@ This hero includes a paragraph and some buttons.
 	}
 
 	p {
-		@include font('secondary', 'bold');
+		@include font('primary', 'bold');
 		@include font-size(15, 16, 22);
 		letter-spacing: .1px;
 

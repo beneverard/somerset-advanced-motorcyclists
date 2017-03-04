@@ -256,7 +256,7 @@ This is a presentation preview of the main header, the style changes slightly at
 		}
 
 		a {
-			@include font('secondary', 'bold');
+			@include font('primary', 'bold');
 			@include font-size(28, 28, 28, 14);
 			color: color('black');
 			text-decoration: none;

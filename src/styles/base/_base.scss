@@ -103,7 +103,7 @@ em {
 }
 
 time {
-	@include font('secondary', 'semibold');
+	@include font('primary', 'semibold');
 	@include font-size(14, 16, 16);
 	color: color('black');
 	letter-spacing: .1px;

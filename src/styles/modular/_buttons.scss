@@ -41,7 +41,7 @@ Buttons are created by either using the `.button` class, button element, or subm
 .button,
 button,
 input[type="submit"] {
-	@include font('secondary', 'bold');
+	@include font('primary', 'bold');
 	@include font-size(12, 16, 18);
 	background: color('black');
 	color: color('white');
@@ -121,7 +121,7 @@ input[type="submit"] {
 // Style Variations
 
 .button--ghost {
-	@include font('secondary', 'regular');
+	@include font('primary', 'regular');
 	background: transparent;
 	color: color('black');
 
