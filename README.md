@@ -1,8 +1,8 @@
-# Web boilerplate and style guide
+# Somerset Advanced Motorcyclists
 
-Version: 0.2.2
+Version: 0.1.0
 
-This is the boilerplate for our web based projects. It contains our front end tooling setup, and the styleguide system we use.
+The WordPress theme for the Somerset Advanced Motorcyclists website.
 
 Please refer to the [CONTRIBUTING.md](./CONTRIBUTING.md) if you wish to improve this project.
 
