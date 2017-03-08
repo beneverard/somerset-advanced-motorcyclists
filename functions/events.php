@@ -7,6 +7,12 @@
 function fetchLatestEvents() {
 
     if ( ! defined('GOOGLE_API_KEY') ) {
+        throw new Exception('Google API not set');
+        return;
+    }
+
+    if ( ! class_exists('Google_Client') ) {
+        throw new Exception('Google API class does not exist');
         return;
     }
 
@@ -63,3 +69,8 @@ function fetchLatestEvents() {
     }
 
 }
+
+try {
+    fetchLatestEvents();
+} catch (Exception $e) {
+    return;
