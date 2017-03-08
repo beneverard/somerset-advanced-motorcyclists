@@ -4,7 +4,7 @@
  //********************
 // COMPOSER AUTOLOADER
 
-require(get_theme_root() . '/' . get_template() . '/vendor/autoload.php');
+include(get_theme_root() . '/' . get_template() . '/vendor/autoload.php');
 
 
  //************************
