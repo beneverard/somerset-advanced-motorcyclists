@@ -4,7 +4,11 @@
  //********************
 // COMPOSER AUTOLOADER
 
-include(get_theme_root() . '/' . get_template() . '/vendor/autoload.php');
+$composer_autoload_path = get_theme_root() . '/' . get_template() . '/vendor/autoload.php';
+
+if ( file_exists($composer_autoload_path) ) {
+	include($composer_autoload_path);
+}
 
 
  //************************
