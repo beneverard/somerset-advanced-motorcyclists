@@ -12,4 +12,3 @@ dist/
 # composer
 vendor
 composer.phar
-composer.lock
