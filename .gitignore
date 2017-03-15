@@ -9,3 +9,6 @@ styleguide/
 # Assets
 dist/
 
+# composer
+vendor
+composer.phar
