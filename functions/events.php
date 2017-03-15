@@ -1,6 +1,26 @@
 <?php
 
 /**
+ * Checks a given event name and returns the colour level, if it exists
+ * @param  string $event_name the name of the event, which will be prefixed with the colour level
+ * @return string/null returns the colour type for this event
+ */
+function getEventColour($event_name) {
+
+    $colours = array('green', 'amber', 'red');
+
+    foreach ( $colours as $colour ) {
+
+        // if the colour is at the start of the name, return the colour
+        if ( strpos(strtolower($event_name), $colour . ' - ') === 0 ) {
+            return $colour;
+        }
+
+    }
+
+}
+
+/**
  * Fetches the latest events from the SAM Google Calendar
  * @return void
  */
@@ -55,8 +75,6 @@ function fetchLatestEvents() {
     // remove any previous contracts from the table
     $wpdb->query("TRUNCATE TABLE `{$wpdb->prefix}events`");
 
-    $colours = array('', 'green', 'amber', 'red');
-
     // add each event to the events table
     foreach ($results->getItems() as $event) {
 
@@ -65,10 +83,19 @@ function fetchLatestEvents() {
             continue;
         }
 
+        // fetch the colour level for this event
+        $colour = getEventColour($event->summary);
+        $name = $event->summary;
+
+        // if a colour exists, remove it from the event name
+        if ( $colour ) {
+            $name = substr($name, strlen($colour) + 3);
+        }
+
         $wpdb->insert($wpdb->prefix . 'events', [
             'id' => $event->id,
-            'name' => $event->summary,
-            'level' => $colours[mt_rand(0, count($colours) - 1)],
+            'name' => $name,
+            'level' => $colour,
             'description' => $event->description,
             'all_day' => $event->start->date !== null,
             'start' => ! empty($event->start->dateTime) ? $event->start->dateTime : $event->start->date,
