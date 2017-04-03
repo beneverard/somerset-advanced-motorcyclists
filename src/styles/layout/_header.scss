@@ -17,10 +17,10 @@ This is a presentation preview of the main header, the style changes slightly at
 
 	<div class="site-header__logos">
 
-		<img class="site-header__logo" src="/wp-content/themes/somerset-advanced-motorcyclists/public/images/logo.svg" />
+		<img class="site-header__logo" src="/wp-content/themes/sam/public/images/logo.svg" />
 
 		<label for="menu-state">
-			<img class="site-header__menu" src="/wp-content/themes/somerset-advanced-motorcyclists/public/images/hamburger.svg" />
+			<img class="site-header__menu" src="/wp-content/themes/sam/public/images/hamburger.svg" />
 		</label>
 
 	</div>
@@ -40,16 +40,35 @@ This is a presentation preview of the main header, the style changes slightly at
 
 */
 
+$width: 1024;
+
 .site-header {
-	background-color: color('dark-blue');
+
+	@include font('primary', 'semibold');
 	color: color('white');
+	background-color: color('dark-blue');
+	text-transform: uppercase;
+
+	@include mq($width) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
 }
 
 .site-header__logos {
+
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.5rem 2.5rem;
+	padding: 1.5rem;
+
+	@include mq($width) {
+		display: block;
+		padding: 1.5rem 2.5rem;
+	}
+
 }
 
 .site-header [id="menu-state"] {
@@ -59,22 +78,56 @@ This is a presentation preview of the main header, the style changes slightly at
 }
 
 .site-header__logo {
-	width: em(190);
+	width: 190px;
 }
 
 .site-header__menu {
+
 	width: em(32);
+
+	@include mq($width) {
+		display: none;
+	}
+
 }
 
 .site-header__nav {
 
+	@include font-size(20);
 	display: none;
-	padding: 1.5rem 2.5rem;
 	margin: 0;
-	border-top: 3px solid color('white');
+	padding: .6em 0;
+	border-top: 2px solid color('white');
+	list-style: none;
+
+	@include mq($width) {
+		@include font-size(16);
+		display: block;
+		border-top: none;
+		padding: 0 2.5rem 0 0;
+	}
+
+	li {
+
+		@include mq($width) {
+			float: left;
+		}
+		
+	}
 
 	a {
+
+		display: block;
 		color: inherit;
+		text-decoration: none;
+		padding: 0.5em 1.3em;
+
+		&:hover,
+		&:focus,
+		&:active {
+			text-decoration: underline;
+		}
+
 	}
 
 }
