@@ -40,7 +40,8 @@ This is a presentation preview of the main header, the style changes slightly at
 
 */
 
-$width: 1024;
+$small: 768;
+$large: 1024;
 
 .site-header {
 
@@ -49,7 +50,7 @@ $width: 1024;
 	background-color: color('dark-blue');
 	text-transform: uppercase;
 
-	@include mq($width) {
+	@include mq($small) {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -64,8 +65,11 @@ $width: 1024;
 	align-items: center;
 	padding: 1.5rem;
 
-	@include mq($width) {
+	@include mq($small) {
 		display: block;
+	}
+
+	@include mq($large) {
 		padding: 1.5rem 2.5rem;
 	}
 
@@ -78,14 +82,20 @@ $width: 1024;
 }
 
 .site-header__logo {
-	width: 190px;
+
+	width: 170px;
+
+	@include mq(800) {
+		width: 190px;
+	}
+
 }
 
 .site-header__menu {
 
 	width: em(32);
 
-	@include mq($width) {
+	@include mq($small) {
 		display: none;
 	}
 
@@ -100,19 +110,23 @@ $width: 1024;
 	border-top: 2px solid color('white');
 	list-style: none;
 
-	@include mq($width) {
+	@include mq($small) {
 		@include font-size(16);
 		display: block;
 		border-top: none;
+		padding: 0 1rem 0 0;
+	}
+
+	@include mq($large) {
 		padding: 0 2.5rem 0 0;
 	}
 
 	li {
 
-		@include mq($width) {
+		@include mq($small) {
 			float: left;
 		}
-		
+
 	}
 
 	a {
@@ -120,7 +134,11 @@ $width: 1024;
 		display: block;
 		color: inherit;
 		text-decoration: none;
-		padding: 0.5em 1.3em;
+		padding: 0.5em .5em;
+
+		@include mq($large) {
+			padding: 0.5em 1.3em;
+		}
 
 		&:hover,
 		&:focus,
