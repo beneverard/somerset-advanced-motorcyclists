@@ -7,9 +7,15 @@
 
 $colours: (
 	'white': #FFF,
-	'grey': #999,
+	'light-grey': #F2F2F2,
+	'grey': #D8D8D8,
 	'black': #000,
 	'dark-blue': #2C3D4A,
+
+	'event-default': #B6B6B6,
+	'event-green': #417505,
+	'event-amber': #F6A623,
+	'event-red': #D0011B,
 );
 
 
@@ -55,6 +61,7 @@ $fonts: (
         family: 'jaf-domus',
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
+            light: 300,
             regular: 400,
 			semibold: 600,
             bold: 700
