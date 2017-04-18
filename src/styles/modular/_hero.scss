@@ -7,131 +7,55 @@ category:
  - Components/Hero
 ---
 
-This is the default hero with just a title, hero's can also contain:
-- Paragraph copy
-- Buttons
-- Image left
-
 ```html
 <section class="hero">
-	<div class="wrapper">
-		<div class="hero__content">
-			<h1>We are <span class="is-grey">The Idea Bureau</span></h1>
-		</div>
+
+	<div class="hero__content">
+		<h1>South West Penisular Spring Rally</h1>
+		<p>Welcome to Somerset Advanced Motorcyclists (SAM). We are a friendly and very active club with membership currently standing at around 100 strong. Our passion covers all things motorcycle related, with many of our people possessing a wealth of knowledge that is freely shared across the group - all in the name of increasing your motorcycling enjoyment.</p>
 	</div>
-</section>
-```
 
-### Slim
-
-The slim variation has reduced padding top and bottom.
-
-```html
-<section class="hero hero--slim">
-	<div class="wrapper">
-		<div class="hero__content">
-			<h1>We are <span class="is-grey">The Idea Bureau</span></h1>
-		</div>
+	<div class="hero__badge">
+		<img src="https://cl.ly/203Q3l02461v/iam-logo.png" />
 	</div>
-</section>
-```
 
-### With Extras
-
-This hero includes a paragraph and some buttons.
-
-```html
-<section class="hero hero--slim">
-	<div class="wrapper">
-		<div class="hero__content">
-			<h1>We are <span class="is-grey">The Idea Bureau</span></h1>
-			<p>Want to find out more?</p>
-			<a class="button">Our People</a>
-			<a class="button button--ghost">Contact us</a>
-		</div>
-	</div>
 </section>
 ```
 
 */
 
 .hero {
-	padding: em(50) 0;
 
-	background-color: color('white');
+	background-image: url('https://cl.ly/2z3V3o2e3r2x/hero-image.png');
+	background-size: cover;
+	color: color('white');
 
-	text-align: center;
+	display: flex;
+	padding: 4rem 2.5rem 3rem;
+	align-items: flex-end;
+	justify-content: space-between;
+	min-height: 360px;
 
-	@include mq(S) {
-	    padding: em(67) 0;
-
-		text-align: left;
-	}
-
-	@include mq(L) {
-	    padding: em(110, 18) 0;
-	}
-}
-
-.hero--slim {
-	padding: em(24) 0;
-
-	@include mq(S) {
-	    padding: em(49) 0;
-	}
-
-	@include mq(L) {
-	    padding: em(53, 18) 0;
-	}
 }
 
 .hero__content {
+	max-width: 830px;
+	margin-right: 1rem;
+}
 
-	@include mq(S) {
-	    max-width: 80%;
-	}
+.hero__content > :last-child {
+	margin-bottom: 0;
+}
 
-	@include mq(M) {
-	    max-width: 90%;
-	}
+.hero__badge {
+	width: 90px;
+	flex: none;
+}
 
-	@include mq(L) {
-	    max-width: 60%;
-	}
+.hero__badge img {
+	border: 2px solid color('white');
+}
 
-	h1 {
-		margin-bottom: em(13, 20);
-
-		@include mq(S) {
-		    margin-bottom: em(25, 30);
-		}
-
-		@include mq(M) {
-		    margin-bottom: em(31, 46);
-		}
-	}
-
-	p {
-		@include font('primary', 'bold');
-		@include font-size(15, 16, 22);
-		letter-spacing: .1px;
-
-		margin-bottom: em(24, 15);
-
-		@include mq(S) {
-			margin-bottom: em(24);
-		}
-
-		@include mq(M) {
-			margin-bottom: em(27, 22);
-		}
-	}
-
-	.button:nth-of-type(1) {
-		margin-right: em(20);
-
-		@include mq(M) {
-		    margin-right: em(60, 18);
-		}
-	}
+.hero__badge img {
+	border: 2px solid color('white');
 }
