@@ -43,7 +43,7 @@ button,
 input[type="submit"] {
 	@include font('primary', 'bold');
 	@include font-size(12, 16, 18);
-	background: color('black');
+	background: color('dark-blue');
 	color: color('white');
 	text-align: center;
 	text-decoration: none;
@@ -54,7 +54,7 @@ input[type="submit"] {
 	margin-bottom: $space / 2;
 	vertical-align: middle;
 
-	border: 2px solid color('black');
+	border: 2px solid color('dark-blue');
 	border-radius: 2px;
 
 	cursor: pointer;
@@ -87,7 +87,7 @@ input[type="submit"] {
 	&:active,
 	&:focus {
 		background: transparent;
-		color: color('black');
+		color: color('dark-blue');
 
 		svg {
 			fill: currentColor;
@@ -98,6 +98,11 @@ input[type="submit"] {
 
  //*****************
 // Sizes Variations
+
+.button--small {
+	@include font-size(14);
+	padding: .66em 1em;
+}
 
 .button--large {
 	@include font-size(14, 16, 20);
@@ -123,12 +128,12 @@ input[type="submit"] {
 .button--ghost {
 	@include font('primary', 'regular');
 	background: transparent;
-	color: color('black');
+	color: color('dark-blue');
 
 	&:hover,
 	&:active,
 	&:focus {
-		background: color('black');
+		background: color('dark-blue');
 		color: color('white');
 	}
 }
@@ -168,4 +173,8 @@ input[type="submit"] {
 
 .button--flat {
 	margin: 0;
+}
+
+.button--upper {
+	text-transform: uppercase;
 }
