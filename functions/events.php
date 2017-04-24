@@ -66,6 +66,7 @@ function fetchLatestEvents() {
         `name` varchar(255) NOT NULL,
         `level` varchar(255) DEFAULT NULL,
         `description` varchar(255) DEFAULT NULL,
+        `location` varchar(255) DEFAULT NULL,
         `all_day` tinyint(1) DEFAULT 0,
         `start` datetime DEFAULT NULL,
         `end` datetime DEFAULT NULL,
@@ -97,6 +98,7 @@ function fetchLatestEvents() {
             'name' => $name,
             'level' => $colour,
             'description' => $event->description,
+            'location' => $event->location,
             'all_day' => $event->start->date !== null,
             'start' => ! empty($event->start->dateTime) ? $event->start->dateTime : $event->start->date,
             'end' => ! empty($event->end->dateTime) ? $event->end->dateTime : $event->end->date

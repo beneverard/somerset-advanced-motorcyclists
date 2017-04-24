@@ -1,8 +1,10 @@
 <?php // footer.php ?>
 
-		<footer>
+			<footer>
 
-		</footer>
+			</footer>
+
+		</div> <!-- / .wrapper -->
 
 		<?php wp_footer(); ?>
 
