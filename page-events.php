@@ -51,7 +51,7 @@
 
 	<script type="text/x-template" id="event">
 
-		<div class="event">
+		<a class="event" href="#">
 
 			<header class="event__header">
 
@@ -64,7 +64,7 @@
 			<p class="event__date">{{ date }}</p>
 			<p class="event__location">{{ event.location }}</p>
 
-		</div>
+		</a>
 
 	</script>
 
@@ -81,13 +81,20 @@
 					var start = moment.utc(this.event.start),
 						end = moment.utc(this.event.end);
 
-					var format = 'h:mm a, dddd Do MMMM YYYY';
+					// calculate and output an all day date range
+					if ( this.event.all_day === '1' ) {
 
-					if ( this.event.all_day !== "1" ) {
-						format = '' + format;
+						var duration = moment.duration(end.diff(start)).asDays() - 1;
+
+						if ( duration === 0 ) {
+							return start.format('dddd Do MMMM YYYY');
+						} else {
+							return start.format('dddd Do MMMM YYYY') + ' - ' + end.format('dddd Do MMMM YYYY');
+						}
+
 					}
-
-					return moment.utc(this.event.start).format(format);
+					
+					return moment.utc(this.event.start).format('h:mm a, dddd Do MMMM YYYY');
 
 				}
 			},

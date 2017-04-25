@@ -68,7 +68,7 @@
 			    <ul class="site-header__nav">
 			        <li><a href="#">Home</a></li>
 			        <li><a href="#">What We Do</a></li>
-			        <li><a href="#">Events</a></li>
+			        <li><a href="/events">Events</a></li>
 			        <li><a href="#">Full Chat</a></li>
 			        <li><a href="#">FAQ</a></li>
 			        <li><a href="#">SWPSR</a></li>

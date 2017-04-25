@@ -31,13 +31,13 @@ category:
 	background-color: color('light-grey');
 	border: 1px solid color('grey');
 	padding: em(15, 14);
+	color: inherit;
+	text-decoration: none;
 }
 
 .event__header {
-
 	display: flex;
 	margin-bottom: em(10, 14);
-
 }
 
 .event__rating {
