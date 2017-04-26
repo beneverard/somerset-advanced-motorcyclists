@@ -3,7 +3,18 @@
 \*------------------------------------*/
 
 main {
+
+	@extend .cf;
 	padding: 40px; // ATTN
+
+	> article {
+		@include span(9 of 12);
+	}
+
+	> aside {
+		@include span(3 of 12 last);
+	}
+
 }
 
 .wrapper {

@@ -2,6 +2,8 @@
 
 <?php get_header(); ?>
 
+	<?php the_post(); ?>
+	
 	<?php get_partial('hero'); ?>
 
 	<?php
@@ -17,7 +19,6 @@
 	<script>var events = <?php echo json_encode($events); ?>;</script>
 
 	<main id="events">
-
 
 		<div class="event__group / band">
 
@@ -93,7 +94,7 @@
 						}
 
 					}
-					
+
 					return moment.utc(this.event.start).format('h:mm a, dddd Do MMMM YYYY');
 
 				}
