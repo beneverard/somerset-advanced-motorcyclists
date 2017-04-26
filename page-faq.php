@@ -1,4 +1,4 @@
-<?php // front-page.php ?>
+<?php // page.php ?>
 
 <?php get_header(); ?>
 
@@ -9,7 +9,20 @@
 	<main>
 
 		<article>
-			<?php the_content(); ?>
+
+			<?php if ( have_rows('frequently_asked_questions') ) : ?>
+
+				<?php while ( have_rows('frequently_asked_questions') ) : the_row(); ?>
+
+					<div class="faq-item">
+						<h4><?php the_sub_field('question'); ?></h4>
+						<?php the_sub_field('answer'); ?>
+					</div>
+
+				<?php endwhile; ?>
+
+			<?php endif; ?>
+
 		</article>
 
 		<aside>

@@ -66,13 +66,13 @@
 			    </div>
 
 			    <ul class="site-header__nav">
-			        <li><a href="#">Home</a></li>
-			        <li><a href="#">What We Do</a></li>
+			        <li><a href="/">Home</a></li>
+			        <li><a href="/what-we-do">What We Do</a></li>
 			        <li><a href="/events">Events</a></li>
-			        <li><a href="#">Full Chat</a></li>
-			        <li><a href="#">FAQ</a></li>
-			        <li><a href="#">SWPSR</a></li>
-			        <li><a href="#">Contact</a></li>
+			        <li><a href="/full-chat">Full Chat</a></li>
+			        <li><a href="/faq">FAQ</a></li>
+			        <li><a href="/swpsr">SWPSR</a></li>
+			        <li><a href="/contact">Contact</a></li>
 			    </ul>
 
 			</header>

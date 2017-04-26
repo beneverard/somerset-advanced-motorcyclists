@@ -96,7 +96,7 @@ abbr {
 
 strong,
 b {
-	@include font('primary', 'bold');
+	@include font('primary', 'semibold');
 }
 
 i,
