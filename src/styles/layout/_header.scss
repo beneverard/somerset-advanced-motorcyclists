@@ -45,10 +45,12 @@ $large: 1024;
 
 .site-header {
 
+	position: relative;
 	@include font('primary', 'semibold');
 	color: color('white');
 	background-color: color('dark-blue');
 	text-transform: uppercase;
+	border-bottom: 2px solid color('white');
 
 	@include mq($small) {
 		display: flex;
@@ -104,17 +106,27 @@ $large: 1024;
 .site-header__nav {
 
 	@include font-size(20);
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
 	display: none;
 	margin: 0;
 	padding: .6em 0;
 	border-top: 2px solid color('white');
 	list-style: none;
+	background-color: color('dark-blue');
+
+	@include mq($small, 'max-width') {
+		border-bottom: 2px solid color('white');
+	}
 
 	@include mq($small) {
 		@include font-size(16);
 		display: block;
 		border-top: none;
 		padding: 0 1rem 0 0;
+		position: static;
 	}
 
 	@include mq($large) {

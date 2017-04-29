@@ -2,10 +2,21 @@
     LAYOUT
 \*------------------------------------*/
 
+.wrapper {
+	box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+	background-color: color('white');
+	margin: 0 auto;
+	max-width: $max-width + px;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
 main {
 
 	@extend .cf;
 	padding: 1rem;
+	  flex: 1;
 
 	> article,
 	> aside {
@@ -19,7 +30,13 @@ main {
 		flex-wrap: wrap;
 
 		.panel {
-			flex: 0 0 calc(50% - #{$space / 2});
+
+			flex-basis: 100%;
+
+			@include mq(M) {
+				flex: 0 0 calc(50% - #{$space / 2});
+			}
+
 		}
 
 	}
@@ -45,12 +62,4 @@ main {
 	}
 
 
-}
-
-.wrapper {
-	box-shadow: 0 0 4px rgba(0, 0, 0, .2);
-	background-color: color('white');
-	margin: 0 auto;
-	max-width: $max-width + px;
-	min-height: 100%;
 }

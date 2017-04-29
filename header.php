@@ -76,3 +76,8 @@
 			    </ul>
 
 			</header>
+
+			<div class="provider-band">
+				<p>IAM RoadSmart Official Provider</p>
+		        <img src="<?php bloginfo('template_directory'); ?>/public/images/iam-logo.png" />
+		    </div>

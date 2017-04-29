@@ -16,7 +16,7 @@ category:
 	</div>
 
 	<div class="hero__badge">
-		<img src="https://cl.ly/203Q3l02461v/iam-logo.png" />
+        <img src="/wp-content/themes/sam/public/images/iam-partner-logo.png" />
 	</div>
 
 </section>
@@ -26,7 +26,7 @@ category:
 
 .hero {
 
-	background-image: url('https://cl.ly/2z3V3o2e3r2x/hero-image.png');
+	background-image: url('../../public/images/hero.jpg');
 	background-size: cover;
 	background-position: bottom;
 	color: color('white');
@@ -34,8 +34,9 @@ category:
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
+	padding: 2rem 1rem 1rem;
 	min-height: 175px;
-	padding: 2rem 1.5rem 1.5rem;
+	border-bottom: 2px solid color('white');
 
 	@include mq(M) {
 		padding: 4rem 2.5rem 3rem;
@@ -45,8 +46,24 @@ category:
 }
 
 .hero__content {
-	max-width: 830px;
-	margin-right: 1rem;
+
+	@include mq(M, 'max-width') {
+
+		h1 {
+			margin-bottom: 0;
+		}
+
+		p {
+			display: none;
+		}
+
+	}
+
+	@include mq(1024) {
+		max-width: 830px;
+		margin-right: 1rem;
+	}
+
 }
 
 .hero__content > :last-child {
@@ -55,8 +72,19 @@ category:
 
 .hero__badge {
 
+	display: none;
+
+	@include mq(1024) {
+		display: block;
+	}
+
+}
+
+.hero__badge img {
+
 	width: 15vw;
 	max-width: 90px;
+	border: 2px solid color('white');
 
 	@include mq(M) {
 		width: 90px;
@@ -64,10 +92,13 @@ category:
 
 }
 
-.hero__badge img {
-	border: 2px solid color('white');
-}
+.hero-mobile {
 
-.hero__badge img {
-	border: 2px solid color('white');
+	@include font('primary', 'semibold');
+	padding: 1rem 1rem 0;
+
+	@include mq(M) {
+		display: none;
+	}
+
 }

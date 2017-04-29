@@ -6,7 +6,15 @@
     </div>
 
     <div class="hero__badge">
-        <img src="https://cl.ly/203Q3l02461v/iam-logo.png" />
+        <img src="<?php bloginfo('template_directory'); ?>/public/images/iam-partner-logo.png" />
+    </div>
+
+</section>
+
+<section class="hero-mobile">
+
+    <div class="hero__content">
+        <?php the_field('hero_content'); ?>
     </div>
 
 </section>
