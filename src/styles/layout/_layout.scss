@@ -16,7 +16,6 @@ main {
 
 	@extend .cf;
 	padding: 1rem;
-	  flex: 1;
 
 	> article,
 	> aside {
@@ -45,6 +44,14 @@ main {
 		padding: 2rem;
 	}
 
+
+
+}
+
+main.two-columns {
+
+	flex: 1;
+
 	@include mq(900) {
 
 		display: flex;
@@ -60,6 +67,5 @@ main {
 		}
 
 	}
-
 
 }

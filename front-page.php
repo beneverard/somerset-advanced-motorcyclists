@@ -6,7 +6,7 @@
 
 	<?php get_partial('hero'); ?>
 
-	<main>
+	<main class="two-columns">
 
 		<article>
 			<?php the_content(); ?>
