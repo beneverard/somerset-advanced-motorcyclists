@@ -45,7 +45,12 @@ category:
 
 }
 
-.hero__content {
+.hero__title {
+	margin-bottom: .5em;
+}
+
+// specific, as we hide this on mobile
+.hero .hero__content {
 
 	@include mq(M, 'max-width') {
 
@@ -99,6 +104,10 @@ category:
 
 	@include mq(M) {
 		display: none;
+	}
+
+	p {
+		display: block;
 	}
 
 }

@@ -21,7 +21,7 @@
 	<main id="events">
 
 		<div class="event__group / band">
-
+	
 			<h2 class="event__group-title">Upcoming Events</h2>
 
 			<div class="event__group-content">
@@ -48,7 +48,7 @@
 
 			<header class="event__header">
 
-				<div class="event__rating" v-bind:data-event-rating="event.level"></div>
+				<div class="event__rating" v-bind:data-event-rating="event.level" :title="level_title"></div>
 
 				<h3 class="event__title">{{ event.name }}</h3>
 
@@ -88,6 +88,22 @@
 					}
 
 					return moment.utc(this.event.start).format('h:mm a, dddd Do MMMM YYYY');
+
+				},
+				level_title: function() {
+
+					switch (this.event.level) {
+
+						case 'green':
+							return 'Ride open to all SAM members';
+
+						case 'amber':
+							return 'Ride open to test-ready associates and test pass holders';
+
+						case 'red':
+							return 'Ride open to test pass holders only';
+
+					}
 
 				}
 			},

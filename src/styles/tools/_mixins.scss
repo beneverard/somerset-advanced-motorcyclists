@@ -121,6 +121,10 @@
 		$value: map-get($breakpoints, $value);
 	}
 
+	@if $feature == 'max-width' {
+		$value: $value - 1;
+	}
+
 	@if type-of($value) == 'number' {
 		$value: $value + px;
 	}

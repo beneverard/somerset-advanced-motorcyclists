@@ -1,40 +1,73 @@
-[id="events"] {
+.event__group {
+	position: relative;
+}
 
-	.event__group {
-	}
+.events-legend {
 
-	.event__group-content {
-		@include break;
+	@include font-size(16);
+
+	@include mq(M) {
 		display: flex;
 		flex-wrap: wrap;
 	}
 
-	.event {
+	span {
+		display: flex;
+		align-items: center;
+		margin-right: 1em;
+		margin-top: 1em;
+	}
 
-		margin-bottom: 1.5em;
-		width: 100%;
+	.event__rating {
+		margin-right: .5em;
+	}
 
-		@include mq(M) {
+}
 
-			@include span(3 of 6);
+.hero .events-legend {
 
-			&:nth-child(2n) {
-				@include last;
-			}
+	margin-top: -1em;
 
+	@include mq(M, 'max-width') {
+		display: none;
+	}
+
+}
+
+.hero-mobile .events-legend {
+	margin-bottom: 1em;
+}
+
+.event__group-content {
+	@include break;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.event {
+
+	margin-bottom: 1.5em;
+	width: 100%;
+
+	@include mq(M) {
+
+		@include span(3 of 6);
+
+		&:nth-child(2n) {
+			@include last;
 		}
 
-		@include mq(L) {
+	}
 
-			&,
-			&:nth-child(2n) {
-				@include span(4 of 12);
-			}
+	@include mq(L) {
 
-			&:nth-child(3n) {
-				@include last;
-			}
+		&,
+		&:nth-child(2n) {
+			@include span(4 of 12);
+		}
 
+		&:nth-child(3n) {
+			@include last;
 		}
 
 	}
