@@ -5,15 +5,45 @@
 main {
 
 	@extend .cf;
-	padding: 40px; // ATTN
+	padding: 1rem;
 
-	> article {
-		@include span(9 of 12);
+	> article,
+	> aside {
+		@extend .band--two;
 	}
 
 	> aside {
-		@include span(3 of 12 last);
+
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		.panel {
+			flex: 0 0 calc(50% - #{$space / 2});
+		}
+
 	}
+
+	@include mq(M) {
+		padding: 2rem;
+	}
+
+	@include mq(900) {
+
+		display: flex;
+
+		> article {
+			flex: 0 1 auto;
+		}
+
+		> aside {
+			flex: 0 0 265px;
+			margin-left: $space;
+			display: block;
+		}
+
+	}
+
 
 }
 

@@ -15,7 +15,7 @@
 				<?php while ( have_rows('frequently_asked_questions') ) : the_row(); ?>
 
 					<div class="faq-item">
-						<h4><?php the_sub_field('question'); ?></h4>
+						<h3><?php the_sub_field('question'); ?></h3>
 						<?php the_sub_field('answer'); ?>
 					</div>
 

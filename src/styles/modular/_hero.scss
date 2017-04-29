@@ -32,10 +32,15 @@ category:
 	color: color('white');
 
 	display: flex;
-	padding: 4rem 2.5rem 3rem;
 	align-items: flex-end;
 	justify-content: space-between;
-	min-height: 360px;
+	min-height: 175px;
+	padding: 2rem 1.5rem 1.5rem;
+
+	@include mq(M) {
+		padding: 4rem 2.5rem 3rem;
+		min-height: 360px;
+	}
 
 }
 
@@ -49,8 +54,14 @@ category:
 }
 
 .hero__badge {
-	width: 90px;
-	flex: none;
+
+	width: 15vw;
+	max-width: 90px;
+
+	@include mq(M) {
+		width: 90px;
+	}
+
 }
 
 .hero__badge img {

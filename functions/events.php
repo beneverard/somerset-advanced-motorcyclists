@@ -107,9 +107,3 @@ function fetchLatestEvents() {
     }
 
 }
-
-try {
-    fetchLatestEvents();
-} catch (Exception $e) {
-    return;
-}

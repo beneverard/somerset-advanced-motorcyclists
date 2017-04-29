@@ -3,7 +3,7 @@
 <?php get_header(); ?>
 
 	<?php the_post(); ?>
-	
+
 	<?php get_partial('hero'); ?>
 
 	<?php
@@ -22,7 +22,7 @@
 
 		<div class="event__group / band">
 
-			<h3 class="event__group-title">Upcoming Events</h3>
+			<h2 class="event__group-title">Upcoming Events</h2>
 
 			<div class="event__group-content">
 				<event v-for="event in latestEvents" :event="event" :key="event.id"></event>
@@ -34,7 +34,7 @@
 
 			<div v-for="group in groupedEvents" class="event__group / band">
 
-				<h4 class="event__group-title">{{ group.month }}</h4>
+				<h3 class="event__group-title">{{ group.month }}</h3>
 
 				<div class="event__group-content">
 					<event v-for="event in group.events" :event="event" :key="event.id"></event>

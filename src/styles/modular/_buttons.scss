@@ -42,7 +42,7 @@ Buttons are created by either using the `.button` class, button element, or subm
 button,
 input[type="submit"] {
 	@include font('primary', 'bold');
-	@include font-size(12, 16, 18);
+	@include font-size(16, 16, 18);
 	background: color('dark-blue');
 	color: color('white');
 	text-align: center;

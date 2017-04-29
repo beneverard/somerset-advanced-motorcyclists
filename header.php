@@ -55,7 +55,7 @@
 
 			    <input type="checkbox" id="menu-state" />
 
-			    <div class="site-header__logos">
+			    <a href="/" class="site-header__logos">
 
 			        <img class="site-header__logo" src="/wp-content/themes/sam/public/images/logo.svg" />
 
@@ -63,7 +63,7 @@
 			            <img class="site-header__menu" src="/wp-content/themes/sam/public/images/hamburger.svg" />
 			        </label>
 
-			    </div>
+			    </a>
 
 			    <ul class="site-header__nav">
 			        <li><a href="/">Home</a></li>
