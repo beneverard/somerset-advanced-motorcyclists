@@ -30,20 +30,12 @@
 
 		</div>
 
-		<div class="events__sneeze-guard" v-bind:class="{ 'events__sneeze-guard-deactive': show_all_events }">
+		<div v-for="group in groupedEvents" class="event__group / band">
 
-			<div v-for="group in groupedEvents" class="event__group / band">
+			<h3 class="event__group-title">{{ group.month }}</h3>
 
-				<h3 class="event__group-title">{{ group.month }}</h3>
-
-				<div class="event__group-content">
-					<event v-for="event in group.events" :event="event" :key="event.id"></event>
-				</div>
-
-			</div>
-
-			<div class="events__sneeze-guard-stuff">
-				<button class="button button--ghost" v-on:click="show_all_events = true">Show More Events</button>
+			<div class="event__group-content">
+				<event v-for="event in group.events" :event="event" :key="event.id"></event>
 			</div>
 
 		</div>
