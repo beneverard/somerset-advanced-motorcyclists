@@ -5,6 +5,7 @@
 a {
     text-decoration: underline;
     word-wrap: break-word;
+    color: inherit;
 
     &:hover,
     &:focus {

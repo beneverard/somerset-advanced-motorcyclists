@@ -2,12 +2,24 @@
 
 <?php get_header(); ?>
 
-	<?php if ( have_posts() ) : the_post(); ?>
+	<?php the_post(); ?>
 
-		<h1><?php the_title(); ?></h1>
+	<?php get_partial('hero'); ?>
 
-		<?php the_content(); ?>
+	<main class="two-columns">
 
-	<?php endif; ?>
+		<article>
+			<?php the_content(); ?>
+		</article>
+
+		<aside>
+
+			<?php get_partial('panels', 'taster-ride'); ?>
+
+			<?php get_partial('panels', 'helpful-links'); ?>
+
+		</aside>
+
+	</main>
 
 <?php get_footer(); ?>

@@ -1,6 +1,6 @@
 <?php // functions.php
 
- 
+
  //*****************
 // FUNCTIONS LOADER
 
@@ -21,7 +21,7 @@ add_theme_support('menus');
 // REGISTER IMAGES
 
 // standard images
-add_image_size('standard_image', 100, 100, TRUE);
+// add_image_size('standard_image', 100, 100, TRUE);
 
 // aspect ratio
-add_aspect_ratio('4x3', 100, 4, 3);
+// add_aspect_ratio('4x3', 100, 4, 3);

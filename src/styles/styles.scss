@@ -16,11 +16,11 @@ partial in the specified directory .
 /*------------------------------------*\
     $TOOLS
 \*------------------------------------*/
+@import 'susy';
 @import 'tools/reset';
 @import 'tools/fonts';
 @import 'tools/mixins';
 @import 'tools/variables';
-@import 'tools/grid';
 
 
 /*------------------------------------*\
@@ -46,6 +46,12 @@ partial in the specified directory .
     $MODULAR
 \*------------------------------------*/
 @import 'modular/*';
+
+
+/*------------------------------------*\
+    $NON-MODULAR
+\*------------------------------------*/
+@import 'non-modular/*';
 
 
 /*------------------------------------*\

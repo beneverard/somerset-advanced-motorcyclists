@@ -2,6 +2,13 @@
 
 <?php get_header(); ?>
 
-	<h1>Page not found</h1>
+	<main>
+
+		<article>
+			<h1>Page Not Found</h1>
+			<p>The page you are looking for cannot be found.</p>
+		</article>
+
+	</main>
 
 <?php get_footer(); ?>

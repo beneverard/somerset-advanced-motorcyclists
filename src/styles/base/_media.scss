@@ -26,6 +26,18 @@ a img {
 	border: 0;
 }
 
+main img {
+	margin-bottom: 1.5em;
+}
+
+main img.size-thumbnail {
+
+	@include mq(412) {
+		max-width: 50%;
+	}
+
+}
+
 img,
 video,
 object {

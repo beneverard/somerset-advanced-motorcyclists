@@ -1,0 +1,44 @@
+/*
+
+---
+name: Provider Band
+category:
+ - Components
+ - Components/Provider Band
+---
+
+```html
+<div class="provider-band">
+    <img src="http://wwww.iam.org.uk/iamroadsmart.png" />
+	<p>IAM RoadSmart Official Provider</p>
+</div>
+
+```
+
+*/
+
+.provider-band {
+
+	background-color: color('light-grey');
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 2px solid color('white');
+
+	@include mq(L) {
+		display: none;
+	}
+
+}
+
+.provider-band img {
+	max-width: 50px;
+	margin-left: 1em;
+}
+
+.provider-band p {
+	@include font-size(16);
+	@include font('primary', 'semibold');
+	margin-bottom: 0;
+}

@@ -104,7 +104,9 @@ gulp.task('styles', function () {
 		.src('./src/styles/styles.scss')
 		.pipe(plumber({ errorHandler: onError }))
 		.pipe(globbing({ extensions: ['.scss'] }))
-		.pipe(sass())
+		.pipe(sass({
+			includePaths: ['node_modules/susy/sass']
+		}))
 		.pipe(autoprefixer('last 2 versions'))
 		.pipe(gulp.dest('dist/styles'))
 		.pipe(concat('styles.min.css'))

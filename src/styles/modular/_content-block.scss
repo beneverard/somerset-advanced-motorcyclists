@@ -41,7 +41,7 @@ This is the default markup and styling for a generic section of content. It usua
 }
 
 .content-block__title {
-	@include font('secondary', 'bold');
+	@include font('primary', 'bold');
 	@include font-size(20, 19, 30);
 	letter-spacing: .2px;
 	line-height: 1;
@@ -49,7 +49,7 @@ This is the default markup and styling for a generic section of content. It usua
 	margin-bottom: em(12, 20);
 
 	@include mq(S) {
-	    @include font('secondary', 'semibold');
+	    @include font('primary', 'semibold');
 		letter-spacing: .1px;
 
 		margin-bottom: em(12, 19);

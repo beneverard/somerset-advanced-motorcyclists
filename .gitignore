@@ -1,0 +1,14 @@
+# System
+.DS_Store
+.sass-cache/
+node_modules/
+
+# Styleguide
+styleguide/
+
+# Assets
+dist/
+
+# composer
+vendor
+composer.phar

@@ -7,8 +7,16 @@
 
 $colours: (
 	'white': #FFF,
-	'grey': #999,
+	'lightest-grey': #F7F7F7,
+	'light-grey': #F2F2F2,
+	'grey': #D8D8D8,
 	'black': #000,
+	'dark-blue': #2C3D4A,
+
+	'event-default': #B6B6B6,
+	'event-green': #417505,
+	'event-amber': #F6A623,
+	'event-red': #D0011B,
 );
 
 
@@ -36,13 +44,12 @@ $border-radius: 4px;
  //****************
 // LAYOUT SETTINGS
 
-$max-width: 1440;
+$max-width: 1200;
 $space: 1.5rem; // NOTE: This is needs to be changed depending on the lineheight of the <p>
 
 $breakpoints: (
-    S: 640,
-    M: 1024,
-	L: 1440
+    M: 640,
+    L: 1024
 );
 
 
@@ -51,23 +58,14 @@ $breakpoints: (
 
 $fonts: (
     primary: (
-        family: 'sans-serif',
+        family: 'jaf-domus',
         fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         weights: (
+            light: 300,
             regular: 400,
 			semibold: 600,
             bold: 700
         ),
-        typekit: false
-    ),
-    secondary: (
-        family: 'sans-serif',
-        fallback: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        weights: (
-            regular: 400,
-			semibold: 600,
-            bold: 700
-        ),
-        typekit: false
+        typekit: true
     )
 );
