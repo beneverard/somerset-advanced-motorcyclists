@@ -8,10 +8,27 @@
 		text-decoration: underline;
 	}
 
-	@include span(3 of 9);
+	@include span(2 of 4);
 
-	&:nth-child(3n) {
+	&:nth-child(2n) {
 		@include last;
+	}
+
+	@include mq(M) {
+		@include span(3 of 6);
+	}
+
+	@include mq(L) {
+
+		&,
+		&:nth-child(2n) {
+			@include span(3 of 9);
+		}
+
+		&:nth-child(3n) {
+			@include last;
+		}
+
 	}
 
 	img {

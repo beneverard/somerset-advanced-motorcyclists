@@ -21,6 +21,7 @@ main {
 	> article,
 	> aside {
 		@extend .band--two;
+		overflow: hidden;
 	}
 
 	> aside {

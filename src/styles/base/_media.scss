@@ -28,7 +28,14 @@ a img {
 
 main img {
 	margin-bottom: 1.5em;
-	width: 50%;
+}
+
+main img.size-thumbnail {
+
+	@include mq(412) {
+		max-width: 50%;
+	}
+
 }
 
 img,
