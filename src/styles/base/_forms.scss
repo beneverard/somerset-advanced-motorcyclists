@@ -32,18 +32,15 @@ form {
 label,
 legend {
 	@include font-size(13);
-	color: color('black');
-	text-transform: uppercase;
-
+	font-weight: 600 !important;
 	display: block;
 	margin-bottom: 0;
-
 	cursor: pointer;
 }
 
 abbr[title="Required"] {
 	@include font('primary', 'bold');
-	color: color('black');
+	color: color('dark-blue');
 }
 
 input[type="text"],
@@ -64,11 +61,11 @@ input[type="datetime-local"],
 textarea {
 	@include font('primary', 'regular');
 	@include font-size(12, 12, 14);
-	color: color('black');
+	color: color('dark-blue');
 	background-color: color('white');
 
 	width: 100%;
-	border: 1px solid color('black');
+	border: 1px solid color('dark-blue');
 	border-radius: $border-radius;
 	padding: .5rem 1rem;
 	margin-bottom: $space / 2;
@@ -79,7 +76,7 @@ textarea {
 	}
 
 	@include mq(M) {
-	    padding: em(16, 14) em(12, 14);
+	    padding: .5em !important;
 	}
 }
 

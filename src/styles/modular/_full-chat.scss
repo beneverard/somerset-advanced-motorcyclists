@@ -1,5 +1,13 @@
 .full-chat-item {
 
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: underline;
+	}
+
 	@include span(3 of 9);
 
 	&:nth-child(3n) {
