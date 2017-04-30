@@ -62,9 +62,9 @@
 
 			<div class="site-header__container">
 
-				<header class="site-header">
+				<input type="checkbox" id="menu-state" />
 
-				    <input type="checkbox" id="menu-state" />
+				<header class="site-header">
 
 				    <a href="/" class="site-header__logos">
 
