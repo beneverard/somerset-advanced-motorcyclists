@@ -9,7 +9,7 @@
 
             <div class="events-legend">
                 <span><div class="event__rating" data-event-rating="green"></div> All SAM members</span>
-                <span><div class="event__rating" data-event-rating="amber"></div> Test-ready associated and test pass holders</span>
+                <span><div class="event__rating" data-event-rating="amber"></div> Test-ready associates and test pass holders</span>
                 <span><div class="event__rating" data-event-rating="red"></div> Test pass holders only</span>
             </div>
 
@@ -33,7 +33,7 @@
 
             <div class="events-legend">
                 <span><div class="event__rating" data-event-rating="green"></div> All SAM members</span>
-                <span><div class="event__rating" data-event-rating="amber"></div> Test-ready associated and test pass holders</span>
+                <span><div class="event__rating" data-event-rating="amber"></div> Test-ready associates and test pass holders</span>
                 <span><div class="event__rating" data-event-rating="red"></div> Test pass holders only</span>
             </div>
 
