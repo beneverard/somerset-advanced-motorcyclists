@@ -1,17 +1,19 @@
 .swpsr-content {
-	@include span(6 of 9);
+
+	@include mq(M) {
+		@include span(6 of 9);
+	}
+
 }
 
 .swpsr-gallery {
 
-	@include span(3 of 9 last);
+	@include mq(M) {
+		@include span(3 of 9 last);
+	}
 
 	img {
 		width: 100%;
 	}
 
-}
-
-body.swpsr main article {
-	overflow: hidden;
 }
