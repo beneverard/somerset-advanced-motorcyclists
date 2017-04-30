@@ -4,8 +4,6 @@
 
 	<?php the_post(); ?>
 
-	<?php get_partial('hero'); ?>
-
 	<main class="two-columns">
 
 		<article>

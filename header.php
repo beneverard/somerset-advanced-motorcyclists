@@ -60,33 +60,39 @@
 
 		<div class="wrapper">
 
-			<header class="site-header">
+			<div class="site-header__container">
 
-			    <input type="checkbox" id="menu-state" />
+				<header class="site-header">
 
-			    <a href="/" class="site-header__logos">
+				    <input type="checkbox" id="menu-state" />
 
-			        <img class="site-header__logo" src="/wp-content/themes/sam/public/images/logo.svg" />
+				    <a href="/" class="site-header__logos">
 
-			        <label for="menu-state">
-			            <img class="site-header__menu" src="/wp-content/themes/sam/public/images/hamburger.svg" />
-			        </label>
+				        <img class="site-header__logo" src="/wp-content/themes/sam/public/images/logo.svg" />
 
-			    </a>
+				        <label for="menu-state">
+				            <img class="site-header__menu" src="/wp-content/themes/sam/public/images/hamburger.svg" />
+				        </label>
 
-			    <ul class="site-header__nav">
-			        <li><a href="/">Home</a></li>
-			        <li><a href="/what-we-do">What We Do</a></li>
-			        <li><a href="/events">Events</a></li>
-			        <li><a href="/full-chat">Full Chat</a></li>
-			        <li><a href="/faq">FAQ</a></li>
-			        <li><a href="/swpsr">SWPSR</a></li>
-			        <li><a href="/contact">Contact</a></li>
-			    </ul>
+				    </a>
 
-			</header>
+				    <ul class="site-header__nav">
+				        <li><a href="/">Home</a></li>
+				        <li><a href="/what-we-do">What We Do</a></li>
+				        <li><a href="/events">Events</a></li>
+				        <li><a href="/full-chat">Full Chat</a></li>
+				        <li><a href="/faq">FAQ</a></li>
+				        <li><a href="/swpsr">SWPSR</a></li>
+				        <li><a href="/contact">Contact</a></li>
+				    </ul>
 
-			<div class="provider-band">
-				<p>IAM RoadSmart Official Provider</p>
-		        <img src="<?php bloginfo('template_directory'); ?>/public/images/iam-logo.png" />
-		    </div>
+				</header>
+
+				<div class="provider-band">
+					<p>IAM RoadSmart Official Provider</p>
+			        <img src="<?php bloginfo('template_directory'); ?>/public/images/iam-logo.png" />
+			    </div>
+
+				<?php get_partial('hero'); ?>
+
+			</div> <!-- / .header -->
