@@ -21,7 +21,7 @@
 	<main id="events">
 
 		<div class="event__group / band">
-	
+
 			<h2 class="event__group-title">Upcoming Events</h2>
 
 			<div class="event__group-content">
@@ -44,7 +44,7 @@
 
 	<script type="text/x-template" id="event">
 
-		<a class="event" href="#">
+		<div class="event">
 
 			<header class="event__header">
 
@@ -57,7 +57,7 @@
 			<p class="event__date">{{ date }}</p>
 			<p class="event__location">{{ event.location }}</p>
 
-		</a>
+		</div>
 
 	</script>
 
