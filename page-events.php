@@ -12,10 +12,6 @@
 
 	?>
 
-	<script src="https://unpkg.com/vue"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
-	<script>var events = <?php echo json_encode($events); ?>;</script>
-
 	<main id="events">
 
 		<div class="event__group / band">
@@ -39,6 +35,10 @@
 		</div>
 
 	</main>
+
+	<script src="<?php bloginfo('template_directory'); ?>/public/scripts/libraries/vue.js"></script>
+	<script src="<?php bloginfo('template_directory'); ?>/public/scripts/libraries/moment.js"></script>
+	<script>var events = <?php echo json_encode($events); ?>;</script>
 
 	<script type="text/x-template" id="event">
 
@@ -85,7 +85,7 @@
 							end = end.subtract(1, 'day');
 
 							return start.format('dddd Do MMMM YYYY') + ' - ' + end.format('dddd Do MMMM YYYY');
-							
+
 						}
 
 					}
