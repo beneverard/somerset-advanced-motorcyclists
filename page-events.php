@@ -80,7 +80,12 @@
 						if ( duration === 0 ) {
 							return start.format('dddd Do MMMM YYYY');
 						} else {
+
+							// for multi-day, all day events, subtract one day from the end
+							end = end.subtract(1, 'day');
+
 							return start.format('dddd Do MMMM YYYY') + ' - ' + end.format('dddd Do MMMM YYYY');
+							
 						}
 
 					}
