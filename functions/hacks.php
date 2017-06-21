@@ -4,23 +4,27 @@
  //***********
 // JQUERY FIX
 
-add_action('template_redirect', function() {
+if ( FALSE ) {
 
-	// only use this method is we're not in wp-admin
-	if ( ! is_admin() ) {
+	add_action('template_redirect', function() {
 
-		// deregister the original version of jQuery
-		wp_deregister_script('jquery');
+		// only use this method is we're not in wp-admin
+		if ( ! is_admin() ) {
 
-		// register it again, this time with no file path
-		wp_register_script('jquery', '', FALSE, '1.11.0');
+			// deregister the original version of jQuery
+			wp_deregister_script('jquery');
 
-		// add it back into the queue
-		wp_enqueue_script('jquery');
+			// register it again, this time with no file path
+			wp_register_script('jquery', '', FALSE, '1.11.0');
 
-	}
+			// add it back into the queue
+			wp_enqueue_script('jquery');
 
-});
+		}
+
+	});
+
+}
 
 
  //**********************
@@ -40,16 +44,16 @@ add_action('init', 'disable_emojis');
 
 /**
  * Filter function used to remove the tinymce emoji plugin.
- * 
- * @param    array  $plugins  
+ *
+ * @param    array  $plugins
  * @return   array             Difference betwen the two arrays
  */
 function disable_emojis_tinymce($plugins) {
-	
+
 	if ( is_array( $plugins ) ) {
 		return array_diff( $plugins, array( 'wpemoji' ) );
 	} else {
 		return array();
 	}
-	
+
 }
