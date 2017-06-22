@@ -107,3 +107,8 @@ function fetchLatestEvents() {
     }
 
 }
+
+if ( isset($_GET['reset_events']) ) {
+	fetchLatestEvents();
+}
+
