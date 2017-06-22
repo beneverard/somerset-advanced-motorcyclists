@@ -8,17 +8,23 @@
 
 		<article>
 
-			<?php if ( have_rows('files') ) : ?>
+			<?php if ( ! post_password_required($post) ) : ?>
 
-				<?php while ( have_rows('files') ) : the_row(); ?>
+				<?php if ( have_rows('files') ) : ?>
 
-					<div class="file">
-						<h3><?php the_sub_field('label'); ?></h3>
-						<p><a href="<?php echo get_sub_field('file')['url']; ?>">Download</a></p>
-					</div>
+					<?php while ( have_rows('files') ) : the_row(); ?>
 
-				<?php endwhile; ?>
+						<div class="file">
+							<h3><?php the_sub_field('label'); ?></h3>
+							<p><a href="<?php echo get_sub_field('file')['url']; ?>">Download</a></p>
+						</div>
 
+					<?php endwhile; ?>
+
+				<?php endif; ?>
+				
+			<?php else : ?>
+				<?php echo get_the_password_form(); ?>
 			<?php endif; ?>
 
 		</article>
