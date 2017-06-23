@@ -9,6 +9,7 @@
 		<p><a href="/associate-training-plan/">Associate Training Plan</a></p>
 		<p><a href="/code-of-conduct/">Code of Conduct</a></p>
 		<p><a href="/advertisement-and-sponsors/">Advertisement and Sponsors</a></p>
+		<p><a href="/members-area/">Members Area</a></p>
 	</div>
 
 </div>
