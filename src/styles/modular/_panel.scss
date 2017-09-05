@@ -55,3 +55,29 @@ category:
 .panel--links p {
 	margin-bottom: 0;
 }
+
+
+.panel--social {
+
+	.panel__content {
+		overflow: hidden;
+	}
+
+	a {
+		@include font-size(24);
+		padding: .25em;
+		margin-right: .25em;
+		background-color: #2C3D4A;
+		float: left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	svg {
+		fill: white;
+		max-height: 1em;
+		max-width: 1em;
+	}
+
+}

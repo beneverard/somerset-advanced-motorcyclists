@@ -22,7 +22,7 @@
 					<?php endwhile; ?>
 
 				<?php endif; ?>
-				
+
 			<?php else : ?>
 				<?php echo get_the_password_form(); ?>
 			<?php endif; ?>
@@ -30,11 +30,9 @@
 		</article>
 
 		<aside>
-
 			<?php get_partial('panels', 'taster-ride'); ?>
-
+			<?php get_partial('panels', 'social'); ?>
 			<?php get_partial('panels', 'helpful-links'); ?>
-
 		</aside>
 
 	</main>
