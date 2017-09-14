@@ -185,7 +185,7 @@ gulp.task('svgstore', function() {
 // TASKS
 
 // post deploy, for deploying to the server
-gulp.task('post-deploy', ['styles', 'scripts']);
+gulp.task('post-deploy', ['styles', 'scripts', 'svgstore']);
 
 // if using styleguide
 if ( is_styleguide === true ) {
