@@ -70,3 +70,21 @@ $medium: 600;
 	}
 
 }
+
+p.site-footer__social {
+
+	margin-bottom: 2em;
+
+	a {
+		display: inline-block;
+		margin-right: 1em;
+	}
+
+	a > svg {
+		@include font-size(24);
+		fill: color('white');
+		height: 1em;
+		width: auto;
+	}
+
+}
