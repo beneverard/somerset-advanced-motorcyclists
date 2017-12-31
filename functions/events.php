@@ -12,10 +12,10 @@ function getEventColour($event_name) {
     foreach ( $colours as $colour ) {
 
         // if the colour is at the start of the name, return the colour
-        if ( strpos(strtolower($event_name), $colour . ' - ') === 0 ) {
+        if ( strpos(strtolower($event_name), $colour . ' ') === 0 ) {
             return $colour;
-        }
-
+	}
+	
     }
 
 }
