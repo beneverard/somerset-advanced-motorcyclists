@@ -12,10 +12,10 @@ function getEventColour($event_name) {
     foreach ( $colours as $colour ) {
 
         // if the colour is at the start of the name, return the colour
-        if ( strpos(strtolower($event_name), $colour . ' - ') === 0 ) {
+        if ( strpos(strtolower($event_name), $colour . ' ') === 0 ) {
             return $colour;
-        }
-
+	}
+	
     }
 
 }
@@ -83,10 +83,12 @@ function fetchLatestEvents() {
         if ( empty($event->summary) ) {
             continue;
         }
+	
+	// set the name based on the summary, replacing any emdash elements for normal dashes
+	$name = str_replace('–', '-', $event->summary);
 
         // fetch the colour level for this event
-        $colour = getEventColour($event->summary);
-        $name = $event->summary;
+        $colour = getEventColour($name);
 
         // if a colour exists, remove it from the event name
         if ( $colour ) {
