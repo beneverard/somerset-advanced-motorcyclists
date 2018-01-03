@@ -1,6 +1,6 @@
 .swpsr-content {
 
-	@include mq(M) {
+	@include mq(L) {
 		@include span(6 of 9);
 	}
 
@@ -8,12 +8,32 @@
 
 .swpsr-gallery {
 
-	@include mq(M) {
-		@include span(3 of 9 last);
+
+	article & {
+
+		display: none;
+
+		@include mq(L) {
+			display: block;
+			@include span(3 of 9 last);
+		}
+
+	}
+
+	aside & {
+
+		@include mq(L) {
+			display: none;
+		}
+
 	}
 
 	img {
 		width: 100%;
 	}
 
+}
+
+.swpsr-content {
+	margin-bottom: spacing(3);
 }
