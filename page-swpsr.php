@@ -25,6 +25,10 @@
 				<?php endif; ?>
 
 			</div>
+			
+			<div class="swpsr-tickets">
+				<?php the_field('tickets'); ?>
+			</div>
 
 		</article>
 
