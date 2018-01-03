@@ -1,5 +1,7 @@
 .swpsr-content {
 
+	margin-bottom: spacing(4);
+
 	@include mq(L) {
 		@include span(6 of 9);
 	}
@@ -32,8 +34,4 @@
 		width: 100%;
 	}
 
-}
-
-.swpsr-content {
-	margin-bottom: spacing(3);
 }
