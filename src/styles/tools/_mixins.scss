@@ -179,3 +179,7 @@
 		bottom: 0;
 	}
 }
+
+@function spacing($value) {
+	@return $value * 8px;
+}
