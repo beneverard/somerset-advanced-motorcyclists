@@ -42,7 +42,7 @@
 
 				<div class="panel__content">
 					<p>The 10th SWPSR is on Saturday 7th April 2018, <a href="#register">register</a> for your entrance today.</p>
-					<a href="#register" class="button button--small button--upper">Register</a>
+					<a href="https://www.eventbrite.co.uk/e/south-west-peninsula-spring-rally-2018-tickets-39182395600" class="button button--small button--upper">Register</a>
 				</div>
 
 			</div>
