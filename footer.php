@@ -37,6 +37,7 @@
 
 					</p>
 
+					<p>View our <a href="/privacy-policy">privacy policy</a></p>
 					<p>Copyright <?php echo date('Y'); ?> Somerset Advanced Motorcyclists</p>
 					<p>Supported by <a href="https://theideabureau.co">The Idea Bureau</a></p>
 
