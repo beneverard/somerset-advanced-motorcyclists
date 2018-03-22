@@ -4,7 +4,7 @@
  //*************
 // ADD CPT MENU
 
-if ( FALSE ) {
+if ( TRUE ) {
 
 	/**
 	 * Adds custom post type archive support to the menu system
@@ -14,7 +14,7 @@ if ( FALSE ) {
 	add_filter('wp_get_nav_menu_items', 'cpt_archive_menu_filter', 10, 3);
 
 	function inject_cpt_archives_menu_meta_box() {
-		add_meta_box( 'add-cpt', __( 'CPT Archives', 'default' ), 'wp_nav_menu_cpt_archives_meta_box', 'nav-menus', 'side', 'default' );
+		add_meta_box( 'add-cpt', __( 'Custom Post Type Archives', 'default' ), 'wp_nav_menu_cpt_archives_meta_box', 'nav-menus', 'side', 'default' );
 	}
 
 	function wp_nav_menu_cpt_archives_meta_box() {
