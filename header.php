@@ -76,15 +76,19 @@
 
 				    </a>
 
-				    <ul class="site-header__nav">
-				        <li><a href="/">Home</a></li>
-				        <li><a href="/what-we-do">What We Do</a></li>
-				        <li><a href="/events">Events</a></li>
-				        <li><a href="/full-chat">Full Chat</a></li>
-				        <li><a href="/faq">FAQ</a></li>
-				        <li><a href="/swpsr">SWPSR</a></li>
-				        <li><a href="/contact">Contact</a></li>
-				    </ul>
+					<?php $header_menu = get_menu('Header menu'); ?>
+
+					<?php if ( $header_menu ) : ?>
+
+					    <ul class="site-header__nav">
+
+							<?php foreach ( $header_menu as $menu ) : ?>
+					        	<li><a href="<?php echo $menu->url; ?>"><?php echo $menu->title; ?></a></li>
+							<?php endforeach; ?>
+
+					    </ul>
+
+					<?php endif; ?>
 
 				</header>
 
