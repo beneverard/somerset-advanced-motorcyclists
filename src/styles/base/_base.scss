@@ -4,6 +4,7 @@ html {
 }
 
 body {
+
 	@include font;
     @include font-size(18);
 	line-height: 1.5;
@@ -42,7 +43,9 @@ body {
 		&.menu-active:after {
 			opacity: .5;
 		}
+
 	}
+
 }
 
 
@@ -80,7 +83,7 @@ ul,
 ol,
 dl {
 	line-height: 1.5;
-    margin-bottom: 1.5em; // Typically the margin-bottom matches the line-height.
+    margin-bottom: 1em;
 }
 
 small {
