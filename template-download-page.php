@@ -16,6 +16,12 @@
 
 			<?php if ( ! post_password_required($post) ) : ?>
 
+				<?php the_content(); ?>
+
+				<?php if ( get_the_content() ) : ?>
+					<hr />
+				<?php endif; ?>
+
 				<?php if ( have_rows('files') ) : ?>
 
 					<?php while ( have_rows('files') ) : the_row(); ?>
