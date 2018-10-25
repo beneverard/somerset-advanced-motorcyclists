@@ -1,4 +1,10 @@
-<?php // page.php ?>
+<?php
+
+/**
+ * Template Name: Download Page
+ */
+
+?>
 
 <?php get_header(); ?>
 
