@@ -1,15 +1,25 @@
-<div class="panel panel--links / band">
+<?php
 
-	<header class="panel__header">
-		<h5 class="panel__title">Helpful Links</h5>
-	</header>
+	$helpful_links = get_menu('Helpful links');
 
-	<div class="panel__content">
-		<p><a href="/chairmans-address/">Chairman's Address</a></p>
-		<p><a href="/associate-training-plan/">Associate Training Plan</a></p>
-		<p><a href="/code-of-conduct/">Code of Conduct</a></p>
-		<p><a href="/advertisement-and-sponsors/">Advertisement and Sponsors</a></p>
-		<p><a href="/members-area/">Members Area</a></p>
+?>
+
+<?php if ( $helpful_links ) : ?>
+
+	<div class="panel panel--links / band">
+
+		<header class="panel__header">
+			<h5 class="panel__title">Helpful Links</h5>
+		</header>
+
+		<div class="panel__content">
+
+			<?php foreach ( $helpful_links as $menu ) : ?>
+				<p><a href="<?php echo $menu->url; ?>"><?php echo $menu->title; ?></a></p>
+			<?php endforeach; ?>
+
+		</div>
+
 	</div>
 
-</div>
+<?php endif; ?>
