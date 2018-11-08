@@ -30,30 +30,31 @@
 
 		<aside>
 
-			<div class="panel / band">
+			<?php if ( have_rows('sidebar_boxes') ) : ?>
 
-				<header class="panel__header">
-					<h5 class="panel__title">Register Today</h5>
-				</header>
+				<?php while ( have_rows('sidebar_boxes') ) : the_row(); ?>
 
-				<div class="panel__content">
-					<p>The 10th SWPSR is on Saturday 7th April 2018, register for your entrance today.</p>
-					<a href="https://www.eventbrite.co.uk/e/south-west-peninsula-spring-rally-2018-tickets-39182395600" class="button button--small button--upper">Register</a>
-				</div>
+					<div class="panel / band">
 
-			</div>
+						<header class="panel__header">
+							<h5 class="panel__title"><?php the_sub_field('title'); ?></h5>
+						</header>
 
-			<div class="panel / band">
+						<div class="panel__content">
 
-				<header class="panel__header">
-					<h5 class="panel__title">Contact</h5>
-				</header>
+							<?php the_sub_field('content'); ?>
 
-				<div class="panel__content">
-					<p>Jez Martin, Events Coordinator<br />07590 368808<br /><a href="mailto:jezmartin@btinternet.com">jezmartin@btinternet.com</a></p>
-				</div>
+							<?php if ( $link = get_sub_field('button') ) : ?>
+								<a href="<?php echo $link['url']; ?>" class="button button--small button--upper"><?php echo $link['title']; ?></a>
+							<?php endif; ?>
 
-			</div>
+						</div>
+
+					</div>
+
+				<?php endwhile; ?>
+
+			<?php endif; ?>
 
 			<div class="swpsr-gallery">
 
