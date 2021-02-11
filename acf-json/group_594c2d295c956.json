@@ -1,0 +1,83 @@
+{
+    "key": "group_594c2d295c956",
+    "title": "Downloads",
+    "fields": [
+        {
+            "key": "field_594c2d380f36a",
+            "label": "Files",
+            "name": "files",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_594c2d480f36b",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "Add File",
+            "sub_fields": [
+                {
+                    "key": "field_594c2d480f36b",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_594c2d520f36d",
+                    "label": "File",
+                    "name": "file",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ]
+    ],
+    "menu_order": -10,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1613079567
+}
