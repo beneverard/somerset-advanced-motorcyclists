@@ -65,7 +65,7 @@ function fetchLatestEvents() {
         `id` varchar(255) NOT NULL,
         `name` varchar(255) NOT NULL,
         `level` varchar(255) DEFAULT NULL,
-        `description` varchar(255) DEFAULT NULL,
+        `description` text DEFAULT NULL,
         `location` varchar(255) DEFAULT NULL,
         `all_day` tinyint(1) DEFAULT 0,
         `start` datetime DEFAULT NULL,
