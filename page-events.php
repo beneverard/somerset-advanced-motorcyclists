@@ -26,7 +26,7 @@
 
 		<div v-for="group in groupedEvents" class="event__group / band">
 
-			<h3 class="event__group-title">{{ group.month }}</h3>
+			<h3 class="event__group-title">{{ group.month }} {{ group.year }}</h3>
 
 			<div class="event__group-content">
 				<event v-for="event in group.events" :event="event" :key="event.id"></event>
@@ -53,7 +53,8 @@
 			</header>
 
 			<p class="event__date">{{ date }}</p>
-			<p class="event__location">{{ event.location }}</p>
+			<p class="event__location" v-if="isURL(event.location)"><a :href="event.location">Online</a></p>
+			<p class="event__location" v-else>{{ event.location }}</p>
 
 		</div>
 
@@ -113,6 +114,9 @@
 			methods: {
 				formatDate: function(moment) {
 					return moment.format('YYYY');
+				},
+				isURL: function(location) {
+					return location.substr(0, 4) === 'http';
 				}
 			}
 		});

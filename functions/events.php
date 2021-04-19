@@ -15,7 +15,7 @@ function getEventColour($event_name) {
         if ( strpos(strtolower($event_name), $colour . ' ') === 0 ) {
             return $colour;
 	}
-	
+
     }
 
 }
@@ -49,6 +49,7 @@ function fetchLatestEvents() {
         'orderBy' => 'startTime',
         'singleEvents' => TRUE,
         'timeMin' => date('c'),
+		'timeMax' => date('c', strtotime('+1 year'))
     );
 
     // attempt to fetch the calendar events
@@ -65,7 +66,7 @@ function fetchLatestEvents() {
         `id` varchar(255) NOT NULL,
         `name` varchar(255) NOT NULL,
         `level` varchar(255) DEFAULT NULL,
-        `description` varchar(255) DEFAULT NULL,
+        `description` text DEFAULT NULL,
         `location` varchar(255) DEFAULT NULL,
         `all_day` tinyint(1) DEFAULT 0,
         `start` datetime DEFAULT NULL,
@@ -83,9 +84,9 @@ function fetchLatestEvents() {
         if ( empty($event->summary) ) {
             continue;
         }
-	
-	// set the name based on the summary, replacing any emdash elements for normal dashes
-	$name = str_replace('–', '-', $event->summary);
+
+		// set the name based on the summary, replacing any emdash elements for normal dashes
+		$name = str_replace('–', '-', $event->summary);
 
         // fetch the colour level for this event
         $colour = getEventColour($name);
