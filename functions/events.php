@@ -49,6 +49,7 @@ function fetchLatestEvents() {
         'orderBy' => 'startTime',
         'singleEvents' => TRUE,
         'timeMin' => date('c'),
+		'timeMax' => date('c', mktime(0, 0, 0, 12, 31, date('Y') + 1))
     );
 
     // attempt to fetch the calendar events
