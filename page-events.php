@@ -53,7 +53,8 @@
 			</header>
 
 			<p class="event__date">{{ date }}</p>
-			<p class="event__location">{{ event.location }}</p>
+			<p class="event__location" v-if="isURL(event.location)"><a :href="event.location">Online</a></p>
+			<p class="event__location" v-else>{{ event.location }}</p>
 
 		</div>
 
@@ -113,6 +114,9 @@
 			methods: {
 				formatDate: function(moment) {
 					return moment.format('YYYY');
+				},
+				isURL: function(location) {
+					return location.substr(0, 4) === 'http';
 				}
 			}
 		});
