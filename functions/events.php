@@ -49,7 +49,7 @@ function fetchLatestEvents() {
         'orderBy' => 'startTime',
         'singleEvents' => TRUE,
         'timeMin' => date('c'),
-		'timeMax' => date('c', mktime(0, 0, 0, 12, 31, date('Y') + 1))
+		'timeMax' => date('c', strtotime('+1 year'))
     );
 
     // attempt to fetch the calendar events

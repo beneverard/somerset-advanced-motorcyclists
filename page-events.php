@@ -26,7 +26,7 @@
 
 		<div v-for="group in groupedEvents" class="event__group / band">
 
-			<h3 class="event__group-title">{{ group.month }}</h3>
+			<h3 class="event__group-title">{{ group.month }} {{ group.year }}</h3>
 
 			<div class="event__group-content">
 				<event v-for="event in group.events" :event="event" :key="event.id"></event>
