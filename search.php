@@ -1,21 +1,24 @@
-<?php // search.php ?>
+<?php
 
-<?php get_header(); ?>
+namespace App;
 
-	<h2>Search Results for '<?php echo get_search_query(); ?>'</h2>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-	<?php if ( have_posts() ) : ?>
+class SearchController extends Controller
+{
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $searchQuery = get_search_query();
 
-		<article>
+        $context['title'] = 'Search results for \'' . htmlspecialchars($searchQuery) . '\'';
+        $context['posts'] = Post::query([
+            's' => $searchQuery,
+        ]);
 
-			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-			<?php the_content(); ?>
-
-		</article>
-
-	<?php else : ?>
-		<p>There are no search results</p>
-	<?php endif; ?>
-
-<?php get_footer(); ?>
+        return new TimberResponse('templates/posts.twig', $context);
+    }
+}

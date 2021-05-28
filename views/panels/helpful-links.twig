@@ -1,0 +1,19 @@
+{% if panels.helpful_links.items %}
+
+	<div class="panel panel--links / band">
+
+		<header class="panel__header">
+			<h5 class="panel__title">Helpful Links</h5>
+		</header>
+
+		<div class="panel__content">
+
+			{% for item in panels.helpful_links.items %}
+				<p><a href="{{ item.url }}">{{ item.name }}</a></p>
+			{% endfor %}
+
+		</div>
+
+	</div>
+
+{% endif %}

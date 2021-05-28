@@ -1,13 +1,19 @@
-<?php // index.php ?>
+<?php
 
-<?php get_header(); ?>
+namespace App;
 
-	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Post;
+use Timber\Timber;
 
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+class IndexController extends Controller
+{
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $context['posts'] = Post::all();
 
-		<?php the_content(); ?>
-
-	<?php endwhile; ?>
-
-<?php get_footer(); ?>
+        return new TimberResponse('templates/posts.twig', $context);
+    }
+}

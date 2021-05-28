@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+
+	{% include 'partials/html-header.twig' %}
+
+	<body class="{{ body_class }}">
+
+		<div class="wrapper">
+
+			{% include 'partials/site-header.twig' %}
+
+			<main class="grid md:grid-cols-4 gap-6" id="maincontent">
+
+				{% block content %}
+					<p>Sorry, no content</p>
+				{% endblock %}
+
+			</main>
+
+			{% include 'partials/site-footer.twig' %}
+
+		</div>
+
+		{% include 'partials/html-footer.twig' %}
+
+	</body>
+
+	<!-- DO NOT REMOVE: theideabureau-page-loaded -->
+
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<article class="md:col-span-3">
+
+		<h1>{{ title }}</h1>
+
+		{% if posts %}
+
+			{% for post in posts %}
+
+				<section>
+					<h2><a href="{{ post.link }}">{{ post.title }}</a></h2>
+				</section>
+
+			{% endfor %}
+
+		{% else %}
+
+			<p>No posts to display.</p>
+
+		{% endif %}
+
+	</article>
+
+	<aside class="md:col-span-1">
+		{% include 'panels/taster-ride.twig' %}
+		{% include 'panels/social.twig' %}
+		{% include 'panels/helpful-links.twig' %}
+	</aside>
+
+{% endblock %}

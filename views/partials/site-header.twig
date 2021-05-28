@@ -1,0 +1,40 @@
+
+
+<div class="site-header__container">
+
+	<input type="checkbox" id="menu-state" />
+
+	<header class="site-header">
+
+		<a href="/" class="site-header__logos">
+
+			<img class="site-header__logo" src="{{ theme.uri }}/public/images/logo.svg" />
+
+			<label for="menu-state">
+				<img class="site-header__menu" src="{{ theme.uri }}/public/images/hamburger.svg" />
+			</label>
+
+		</a>
+
+		{% if header.menu.items %}
+
+			<ul class="site-header__nav">
+
+				{% for item in header.menu.items %}
+					<li><a href="{{ item.url }}">{{ item.name }}</a></li>
+				{% endfor %}
+
+			</ul>
+
+		{% endif %}
+
+	</header>
+
+	<div class="provider-band">
+		<p>IAM RoadSmart Official Provider</p>
+		<img src="{{ theme.uri }}/public/images/iam-logo.png" />
+	</div>
+
+	{% include 'blocks/hero.twig' %}
+
+</div> <!-- / .header -->

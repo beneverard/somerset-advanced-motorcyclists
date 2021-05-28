@@ -1,14 +1,21 @@
-<?php // 404.php ?>
+<?php
 
-<?php get_header(); ?>
+namespace App;
 
-	<main>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
-		<article>
-			<h1>Page Not Found</h1>
-			<p>The page you are looking for cannot be found.</p>
-		</article>
+/**
+ * Class names can not start with a number so the 404 controller has a special cased name
+ */
+class Error404Controller extends Controller
+{
+	public function handle()
+	{
+        $context = Timber::get_context();
 
-	</main>
-
-<?php get_footer(); ?>
+    	return new TimberResponse('templates/errors/404.twig', $context, 404);
+	}
+}

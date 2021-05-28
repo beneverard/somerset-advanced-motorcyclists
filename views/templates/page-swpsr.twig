@@ -1,0 +1,55 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<article class="md:col-span-2">
+
+		{{ post.meta('introduction') }}
+
+		{{ post.content|raw }}
+
+	</article>
+
+	<aside class="md:col-span-1">
+
+		{% if post.meta('gallery') %}
+
+			{% for image in post.meta('gallery') %}
+				<img class="w-full" src="{{ image.sizes.medium  }}" />
+			{% endfor %}
+
+		{% endif %}
+
+	</aside>
+
+	<aside class="md:col-span-1">
+
+		{% if post.meta('sidebar_boxes') %}
+
+			{% for panel in post.meta('sidebar_boxes') %}
+
+				<div class="panel / band">
+
+					<header class="panel__header">
+						<h5 class="panel__title">{{ panel.title }}</h5>
+					</header>
+
+					<div class="panel__content">
+
+						{{ panel.content }}
+
+						{% if panel.button %}
+							<a href="{{ panel.button.url }}" class="button button--small button--upper">{{ panel.button.title }}</a>
+						{% endif %}
+
+					</div>
+
+				</div>
+
+			{% endfor %}
+
+		{% endif %}
+
+	</aside>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<article class="md:col-span-3">
+
+		{% if post.meta('frequently_asked_questions') %}
+
+			{% for item in post.meta('frequently_asked_questions') %}
+
+				<div class="faq-item">
+					<h3>{{ item.question }}</h3>
+					{{ item.answer }}
+				</div>
+
+			{% endfor %}
+
+		{% endif %}
+
+	</article>
+
+	<aside class="md:col-span-1">
+		{% include 'panels/taster-ride.twig' %}
+		{% include 'panels/social.twig' %}
+		{% include 'panels/helpful-links.twig' %}
+	</aside>
+
+{% endblock %}
