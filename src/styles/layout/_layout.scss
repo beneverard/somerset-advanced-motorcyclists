@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /*------------------------------------*\
     LAYOUT
 \*------------------------------------*/
@@ -30,60 +32,16 @@
 	flex: none; /* 2 */
 }
 
+main.main-grid {
+	@apply grid gap-6;
+}
+
 main {
 
-	@extend .cf;
 	padding: 1rem;
-	flex: 1 0 auto; /* 2 */
-
-	> article,
-	> aside {
-		@extend .band--two;
-		overflow: hidden;
-	}
-
-	> aside {
-
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-
-		.panel {
-
-			flex-basis: 100%;
-
-			@include mq(M) {
-				flex: 0 0 calc(50% - #{$space / 2});
-			}
-
-		}
-
-	}
 
 	@include mq(M) {
 		padding: 2rem;
-	}
-
-
-
-}
-
-main.two-columns {
-
-	@include mq(900) {
-
-		display: flex;
-
-		> article {
-			flex: 1 1 auto;
-		}
-
-		> aside {
-			flex: 0 0 265px;
-			margin-left: $space;
-			display: block;
-		}
-
 	}
 
 }
