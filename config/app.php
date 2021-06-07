@@ -29,6 +29,7 @@ return [
 
         // Application Providers
         App\Providers\AppServiceProvider::class,
+        App\Providers\EventsServiceProvider::class,
     ],
 
     'aliases' => [
