@@ -28,6 +28,7 @@ return [
         Rareloop\Lumberjack\Providers\EncryptionServiceProvider::class,
 
         // Application Providers
+        App\Providers\AdminServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\EventsServiceProvider::class,
     ],
