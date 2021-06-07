@@ -19,9 +19,7 @@ class EventsServiceProvider extends ServiceProvider
     public function boot()
     {
 		$this->addEventsResetButton();
-
 		$this->handleEventResetRequest();
-
 	}
 
 	protected function handleEventResetRequest()
