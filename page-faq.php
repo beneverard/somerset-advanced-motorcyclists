@@ -1,34 +1,22 @@
-<?php // page.php ?>
+<?php
 
-<?php get_header(); ?>
+namespace App;
 
-	<?php the_post(); ?>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
-	<main class="two-columns">
+class PageFaqController extends Controller
+{
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $page = new Page();
 
-		<article>
+		// main
+        $context['post'] = $page;
 
-			<?php if ( have_rows('frequently_asked_questions') ) : ?>
-
-				<?php while ( have_rows('frequently_asked_questions') ) : the_row(); ?>
-
-					<div class="faq-item">
-						<h3><?php the_sub_field('question'); ?></h3>
-						<?php the_sub_field('answer'); ?>
-					</div>
-
-				<?php endwhile; ?>
-
-			<?php endif; ?>
-
-		</article>
-
-		<aside>
-			<?php get_partial('panels', 'taster-ride'); ?>
-			<?php get_partial('panels', 'social'); ?>
-			<?php get_partial('panels', 'helpful-links'); ?>
-		</aside>
-
-	</main>
-
-<?php get_footer(); ?>
+    	return new TimberResponse('templates/page-faq.twig', $context);
+    }
+}

@@ -1,27 +1,18 @@
-<?php // functions.php
+<?php
 
+require get_theme_root() . '/' . get_template() . '/vendor/autoload.php';
 
- //*****************
-// FUNCTIONS LOADER
+use App\Http\Lumberjack;
 
-// bury groups of functionality within the functions/ directory
-// loader.php will include all .php files from within
+// Create the Application Container
+$app = require_once('bootstrap/app.php');
 
-require_once('functions/loader.php');
+// Bootstrap Lumberjack from the Container
+$lumberjack = $app->make(Lumberjack::class);
+$lumberjack->bootstrap();
 
+// Import our routes file
+require_once('routes.php');
 
- //**************
-// THEME SUPPORT
-
-add_theme_support('post-thumbnails');
-add_theme_support('menus');
-
-
- //****************
-// REGISTER IMAGES
-
-// standard images
-// add_image_size('standard_image', 100, 100, TRUE);
-
-// aspect ratio
-// add_aspect_ratio('4x3', 100, 4, 3);
+// Set global params in the Timber context
+add_filter('timber_context', [$lumberjack, 'addToContext']);

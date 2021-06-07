@@ -4,49 +4,28 @@
  * Template Name: Download Page
  */
 
-?>
+namespace App;
 
-<?php get_header(); ?>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
-	<?php the_post(); ?>
+class TemplateDownloadPageController extends Controller
+{
+    public function handle()
+    {
+        $context = Timber::get_context();
+        $page = new Page();
 
-	<main class="two-columns">
+        $context['post'] = $page;
+        $context['content'] = $page->content;
 
-		<article>
-
-			<?php if ( ! post_password_required($post) ) : ?>
-
-				<?php the_content(); ?>
-
-				<?php if ( get_the_content() ) : ?>
-					<hr />
-				<?php endif; ?>
-
-				<?php if ( have_rows('files') ) : ?>
-
-					<?php while ( have_rows('files') ) : the_row(); ?>
-
-						<div class="file">
-							<h3><?php the_sub_field('label'); ?></h3>
-							<p><a href="<?php echo get_sub_field('file')['url']; ?>">Download</a></p>
-						</div>
-
-					<?php endwhile; ?>
-
-				<?php endif; ?>
-
-			<?php else : ?>
-				<?php echo get_the_password_form(); ?>
-			<?php endif; ?>
-
-		</article>
-
-		<aside>
-			<?php get_partial('panels', 'taster-ride'); ?>
-			<?php get_partial('panels', 'social'); ?>
-			<?php get_partial('panels', 'helpful-links'); ?>
-		</aside>
-
-	</main>
-
-<?php get_footer(); ?>
+        if (!post_password_required()) {
+            return new TimberResponse('templates/template-download-page.twig', $context);
+        } else {
+            $context['password_form'] = get_the_password_form();
+            return new TimberResponse('templates/password.twig', $context);
+        }
+    }
+}

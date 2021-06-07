@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<article class="md:col-span-3 / grid grid-cols-2 md:grid-cols-3 gap-4">
+
+		{% if post.meta('full_chat_editions') %}
+
+			{% for issue in post.meta('full_chat_editions') %}
+
+				<a class="full-chat-item" href="{{ issue.download }}">
+					<img src="{{ issue.cover_image.sizes.medium }}" />
+					<h3>{{ issue.name }}</h3>
+				</a>
+
+			{% endfor %}
+
+		{% endif %}
+
+	</article>
+
+	<aside class="md:col-span-1">
+		{% include 'panels/taster-ride.twig' %}
+		{% include 'panels/social.twig' %}
+		{% include 'panels/helpful-links.twig' %}
+	</aside>
+
+{% endblock %}

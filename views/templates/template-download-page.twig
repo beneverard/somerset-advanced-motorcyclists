@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<article class="md:col-span-3">
+
+		{{ post.content | raw }}
+
+		{% if post.content %}
+			<hr>
+		{% endif %}
+
+		{% if post.meta('files') %}
+
+			{% for file in post.meta('files') %}
+
+				<div class="file">
+					<h3>{{ file.label }}</h3>
+					<p><a href="{{ file.file.url }}">Download</a></p>
+				</div>
+
+			{% endfor %}
+
+		{% endif %}
+
+	</article>
+
+	<aside class="md:col-span-1">
+		{% include 'panels/taster-ride.twig' %}
+		{% include 'panels/social.twig' %}
+		{% include 'panels/helpful-links.twig' %}
+	</aside>
+
+{% endblock %}

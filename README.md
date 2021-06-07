@@ -1,6 +1,6 @@
 # Somerset Advanced Motorcyclists
 
-Version: 1.1.1
+Version: 1.1.2
 
 The WordPress theme for the Somerset Advanced Motorcyclists website.
 
@@ -37,8 +37,6 @@ You will then be presented with the development scripts you have available to ru
 * **Build** - This is a one-time run script which generates all of the assets. This script is mainly run in the post-deploy process.
 * **Watch** - This enables the watch task on all assets, and triggers LiveReload.
 * **Modernizr** - This is a dedicated script which runs Modernizr. Remember to manually add your test conditions to the `gulpfile`
-* **Style guide** - This will generate a fresh style guide under `/styleguide/`.
-* **Deploy style guide** - This will deploy the style guide to its appropriate GitHub Page.
 
 ---
 
@@ -80,58 +78,6 @@ We take inspiration from the [SMACSS architecture](https://smacss.com/).
 
 ---
 
-## **Style Guide**
-
-### Background
-
-The style guide we use is a custom, re-themed version of [Aigis](https://pxgrid.github.io/aigis/).
-
-### Structure
-
-The style guide template structure loosely follows that of Brad Frost's [Pattern Lab](http://patternlab.io/about.html), in that we take inspiration for the following template levels:
-
-- **Base** - This represents the atomic level (base styles)
-- **Components** - This represents the modular UI components
-- **Layout** - This represents structural framework components
-
-### Config
-
-There is a `styleguide_config.yml` file that dictates: where the style guide will search for references, the destination directory, and which assets get compiled into the destination.
-
-- **source:** - This references where you keep your working sass files.
-- **dest:** - This is the destination folder for the generated style guide, if this changes you will need to update the `deploy-styleguide` script in the `package.json`.
-- **dependencies:** - This will reference your destination folder for compiled assets: css, js, images etc.
-
-### Usage
-
-The style guide is generated through comments in the `.scss` that follow a simple structure detailed below. The generation is on-the-fly through `yarn run watch` or manual via `yarn run styleguide`.
-
-There is a boolean flag in the gulpfile incase you would rather not use the style guide.
-
-	```
-	/*
-
-	---
-	name: Title Here
-	category:
-	 - Category
-	 - Category/Title
-	---
-
-	## Markdown description
-
-	Hello Component!
-
-	* Use the `.alt--class` modifier.
-
-	```html
-	<span>HTML Example</span>
-	<span class="alt--class">HTML Example</span>
-	```
-
-	*/
-	```
-
 ## **HTACCESS**
 
 This section contains optional snippets of code that can be added to the root `.htaccess` file.
@@ -151,12 +97,4 @@ ErrorDocument 503 /maintenance.html
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteRule .* /maintenance.html [R=503,L]
-```
-
-### Style guide redirect
-
-The following line contains two parameters, it states that when you navigate to `/styleguide` you will be redirected to `/wp-content/themes/wp-example/styleguide` - the actual location of the styleguide.
-
-```
-Redirect 301 /styleguide /wp-content/themes/wp-example/styleguide
 ```

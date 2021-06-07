@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /*
 
 Atomic design is philosophically complimentary with these CSS approaches:
@@ -16,7 +20,7 @@ partial in the specified directory .
 /*------------------------------------*\
     $TOOLS
 \*------------------------------------*/
-@import 'susy';
+
 @import 'tools/reset';
 @import 'tools/fonts';
 @import 'tools/mixins';

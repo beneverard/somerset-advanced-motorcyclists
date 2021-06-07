@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<article class="md:col-span-3">
+		{{ post.content|raw }}
+	</article>
+
+	<aside class="md:col-span-1">
+		{% include 'panels/taster-ride.twig' %}
+		{% include 'panels/social.twig' %}
+		{% include 'panels/helpful-links.twig' %}
+	</aside>
+
+{% endblock %}

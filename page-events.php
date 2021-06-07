@@ -1,176 +1,76 @@
-<?php // page.php ?>
+<?php
 
-<?php get_header(); ?>
+namespace App;
 
-	<?php the_post(); ?>
+use App\Http\Controllers\Controller;
+use Rareloop\Lumberjack\Http\Responses\TimberResponse;
+use Rareloop\Lumberjack\Page;
+use Timber\Timber;
 
-	<?php
-
+class PageEventsController extends Controller
+{
+    public function handle()
+    {
 		global $wpdb;
+
+        $context = Timber::get_context();
+        $page = new Page();
+
+		// main
+        $context['post'] = $page;
 
 		$events = $wpdb->get_results("SELECT id, name, level, location, all_day, start, end FROM `{$wpdb->prefix}events` ORDER BY start ASC");
 
-	?>
+		$events = array_map(function($event) {
 
-	<main id="events">
+			$event->isOnline = \substr($event->location, 0, 4) === 'http';
+			$event->allDay = $event->all_day == '0';
+			$event->singleDay = date('U', strtotime($event->end)) - date('U', strtotime($event->start)) <= 86400;
 
-		<div class="event__group / band">
+			unset($event->all_day);
 
-			<h2 class="event__group-title">Upcoming Events</h2>
+			if (! $event->allDay) {
 
-			<div class="event__group-content">
-				<event v-for="event in latestEvents" :event="event" :key="event.id"></event>
-			</div>
-
-		</div>
-
-		<div v-for="group in groupedEvents" class="event__group / band">
-
-			<h3 class="event__group-title">{{ group.month }} {{ group.year }}</h3>
-
-			<div class="event__group-content">
-				<event v-for="event in group.events" :event="event" :key="event.id"></event>
-			</div>
-
-		</div>
-
-	</main>
-
-	<script src="<?php bloginfo('template_directory'); ?>/public/scripts/libraries/vue.js"></script>
-	<script src="<?php bloginfo('template_directory'); ?>/public/scripts/libraries/moment.js"></script>
-	<script>var events = <?php echo json_encode($events); ?>;</script>
-
-	<script type="text/x-template" id="event">
-
-		<div class="event">
-
-			<header class="event__header">
-
-				<div class="event__rating" v-bind:data-event-rating="event.level" :title="level_title"></div>
-
-				<h3 class="event__title">{{ event.name }}</h3>
-
-			</header>
-
-			<p class="event__date">{{ date }}</p>
-			<p class="event__location" v-if="isURL(event.location)"><a :href="event.location">Online</a></p>
-			<p class="event__location" v-else>{{ event.location }}</p>
-
-		</div>
-
-	</script>
-
-	<script>
-
-		Vue.component('event', {
-			template: '#event',
-			props: {
-				event: Object
-			},
-			computed: {
-				date: function() {
-
-					var start = moment.utc(this.event.start),
-						end = moment.utc(this.event.end);
-
-					// calculate and output an all day date range
-					if ( this.event.all_day === '1' ) {
-
-						var duration = moment.duration(end.diff(start)).asDays() - 1;
-
-						if ( duration === 0 ) {
-							return start.format('dddd Do MMMM YYYY');
-						} else {
-
-							// for multi-day, all day events, subtract one day from the end
-							end = end.subtract(1, 'day');
-
-							return start.format('dddd Do MMMM YYYY') + ' - ' + end.format('dddd Do MMMM YYYY');
-
-						}
-
-					}
-
-					return moment.utc(this.event.start).format('h:mm a, dddd Do MMMM YYYY');
-
-				},
-				level_title: function() {
-
-					switch (this.event.level) {
-
-						case 'green':
-							return 'Ride open to all SAM members';
-
-						case 'amber':
-							return 'Ride open to test-ready associates and test pass holders';
-
-						case 'red':
-							return 'Ride open to test pass holders only';
-
-					}
-
+				if ($event->singleDay) {
+					$event->formattedDate = date('l jS F Y', \strtotime($event->start));
+				} else {
+					$event->formattedDate = date('l jS F Y', \strtotime($event->start)) . ' - ' . date('l jS F Y', \strtotime($event->end));
 				}
-			},
-			methods: {
-				formatDate: function(moment) {
-					return moment.format('YYYY');
-				},
-				isURL: function(location) {
-					return location.substr(0, 4) === 'http';
-				}
+
+			} else {
+				$event->formattedDate = date('H:i a, l jS F Y', \strtotime($event->start));
 			}
-		});
 
-		var app = new Vue({
-			el: '#events',
-			data: {
-				events: events,
-				show_all_events: false
-			},
-			computed: {
+			return $event;
 
-				latestEvents: function() {
-					return this.events.slice(0, 6);
-				},
+		}, $events);
 
-				otherEvents: function() {
-					return this.events.slice(6);
-				},
+		$upcomingEventsCount = 6;
 
-				groupedEvents: function() {
-					return this.groupEvents(this.events.slice(6));
-				}
+		$context['upcoming_events'] = array_slice($events, 0, $upcomingEventsCount);
+		$futureEvents = array_slice($events, $upcomingEventsCount);
 
-			},
-			methods: {
+		$futureGroups = [];
 
-				groupEvents: function(events) {
+		foreach ($futureEvents as $event) {
 
-					var months = {};
+			$dateKey = date('Y-m', strtotime($event->start));
 
-					events.forEach(function(event) {
+			if (! isset($futureGroups[$dateKey])) {
 
-						var key = moment.utc(event.start).format('YYMM');
-
-						if ( typeof months[key] === "undefined" ) {
-							months[key] = {
-								month: moment.utc(event.start).format('MMMM'),
-								year: moment.utc(event.start).format('YYYY'),
-								events: []
-							};
-						}
-
-						months[key].events.push(event);
-
-					});
-
-					return months;
-
-				}
+				$futureGroups[$dateKey] = [
+					'heading' => date('F Y', strtotime($event->start)),
+					'events' => []
+				];
 
 			}
-		});
 
-	</script>
+			$futureGroups[$dateKey]['events'][] = $event;
 
-<?php get_footer(); ?>
+		}
+
+		$context['future_groups'] = $futureGroups;
+
+    	return new TimberResponse('templates/page-events.twig', $context);
+    }
+}

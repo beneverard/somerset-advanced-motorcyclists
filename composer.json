@@ -1,5 +1,9 @@
 {
     "require": {
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "rareloop/lumberjack-core": "^5.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.2"
     }
 }

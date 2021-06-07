@@ -38,38 +38,3 @@
 	margin-bottom: 1em;
 }
 
-.event__group-content {
-	@include break;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.event {
-
-	margin-bottom: 1.5em;
-	width: 100%;
-
-	@include mq(M) {
-
-		@include span(3 of 6);
-
-		&:nth-child(2n) {
-			@include last;
-		}
-
-	}
-
-	@include mq(L) {
-
-		&,
-		&:nth-child(2n) {
-			@include span(4 of 12);
-		}
-
-		&:nth-child(3n) {
-			@include last;
-		}
-
-	}
-
-}

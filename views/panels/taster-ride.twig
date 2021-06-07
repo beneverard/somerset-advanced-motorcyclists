@@ -1,0 +1,21 @@
+<div class="panel / band">
+
+	<header class="panel__header">
+		<h5 class="panel__title">{{ panels.taster_rides.title }}</h5>
+	</header>
+
+	<div class="panel__content">
+
+		<p>{{ panels.taster_rides.content }}</p>
+
+		{% if panels.taster_rides.link %}
+
+			<a href="{{ panels.taster_rides.link.url }}" target="{{ panels.taster_rides.link.target }}" class="button button--small button--upper">
+				{{ panels.taster_rides.title}}
+			</a>
+
+		{% endif %}
+
+	</div>
+
+</div>
