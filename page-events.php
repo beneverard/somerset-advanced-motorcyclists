@@ -18,7 +18,7 @@
 
 			<h2 class="event__group-title">Upcoming Events</h2>
 
-			<div class="event__group-content">
+			<div class="[tw: grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ]">
 				<event v-for="event in latestEvents" :event="event" :key="event.id"></event>
 			</div>
 
@@ -28,7 +28,7 @@
 
 			<h3 class="event__group-title">{{ group.month }} {{ group.year }}</h3>
 
-			<div class="event__group-content">
+			<div class="[tw: grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ]">
 				<event v-for="event in group.events" :event="event" :key="event.id"></event>
 			</div>
 

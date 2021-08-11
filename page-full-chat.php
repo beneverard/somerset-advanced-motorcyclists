@@ -6,7 +6,7 @@
 
 	<main class="two-columns">
 
-		<article>
+		<article class="md:col-span-3 / grid grid-cols-2 md:grid-cols-3 gap-4">
 
 			<?php if ( have_rows('full_chat_editions') ) : ?>
 
@@ -23,7 +23,7 @@
 
 		</article>
 
-		<aside>
+		<aside class="md:col-span-1">
 			<?php get_partial('panels', 'taster-ride'); ?>
 			<?php get_partial('panels', 'social'); ?>
 			<?php get_partial('panels', 'helpful-links'); ?>

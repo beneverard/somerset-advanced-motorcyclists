@@ -68,10 +68,10 @@
 
 				    <a href="/" class="site-header__logos">
 
-				        <img class="site-header__logo" src="/wp-content/themes/sam/public/images/logo.svg" />
+				        <img class="site-header__logo" src="<?php bloginfo('template_directory'); ?>/public/images/logo.svg" />
 
 				        <label for="menu-state">
-				            <img class="site-header__menu" src="/wp-content/themes/sam/public/images/hamburger.svg" />
+				            <img class="site-header__menu" src="<?php bloginfo('template_directory'); ?>/public/images/hamburger.svg" />
 				        </label>
 
 				    </a>

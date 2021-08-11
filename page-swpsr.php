@@ -6,7 +6,7 @@
 
 	<main class="two-columns">
 
-		<article>
+		<article class="md:col-span-2">
 
 			<?php the_field('introduction'); ?>
 
@@ -14,21 +14,21 @@
 				<?php the_content(); ?>
 			</div>
 
-			<div class="swpsr-gallery">
-
-				<?php if ( $gallery = get_field('gallery') ) : ?>
-
-					<?php foreach ( $gallery as $image ) : ?>
-						<img src="<?php echo $image['sizes']['medium']; ?>" />
-					<?php endforeach; ?>
-
-				<?php endif; ?>
-
-			</div>
-
 		</article>
 
-		<aside>
+		<aside class="md:col-span-1">
+
+			<?php if ( $gallery = get_field('gallery') ) : ?>
+
+				<?php foreach ( $gallery as $image ) : ?>
+					<img src="<?php echo $image['sizes']['medium']; ?>" />
+				<?php endforeach; ?>
+
+			<?php endif; ?>
+
+		</aside>
+
+		<aside class="md:col-span-1">
 
 			<?php if ( have_rows('sidebar_boxes') ) : ?>
 
@@ -55,18 +55,6 @@
 				<?php endwhile; ?>
 
 			<?php endif; ?>
-
-			<div class="swpsr-gallery">
-
-				<?php if ( $gallery = get_field('gallery') ) : ?>
-
-					<?php foreach ( $gallery as $image ) : ?>
-						<img src="<?php echo $image['sizes']['medium']; ?>" />
-					<?php endforeach; ?>
-
-				<?php endif; ?>
-
-			</div>
 
 		</aside>
 

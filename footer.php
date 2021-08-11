@@ -2,7 +2,7 @@
 
 			<script>
 				var ajax = new XMLHttpRequest();
-				ajax.open('GET', '/wp-content/themes/sam/dist/images/icons.svg', true);
+				ajax.open('GET', '<?php bloginfo('template_directory'); ?>/dist/images/icons.svg', true);
 				ajax.send();
 				ajax.onload = function(e) {
 					var div = document.createElement('div');
@@ -16,7 +16,7 @@
 			<footer class="site-footer">
 
 				<a href="/" class="site-footer__logo">
-			  	  <img src="/wp-content/themes/sam/public/images/logo.svg" />
+			  	  <img src="<?php bloginfo('template_directory'); ?>/public/images/logo.svg" />
 			    </a>
 
 				<div class="site-footer__colophon">
