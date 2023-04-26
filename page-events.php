@@ -53,8 +53,11 @@
 			</header>
 
 			<p class="event__date">{{ date }}</p>
-			<p class="event__location" v-if="isURL(event.location)"><a :href="event.location">Online</a></p>
-			<p class="event__location" v-else>{{ event.location }}</p>
+
+			<template v-if="event.location">
+				<p class="event__location" v-if="isURL(event.location)"><a :href="event.location">Online</a></p>
+				<p class="event__location" v-else>{{ event.location }}</p>
+			</template>
 
 		</div>
 
