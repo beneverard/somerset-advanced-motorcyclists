@@ -27,3 +27,8 @@ add_theme_support('menus');
 
 // aspect ratio
 // add_aspect_ratio('4x3', 100, 4, 3);
+
+add_action('admin_init', function () {
+    $role = get_role('editor');
+    $role->add_cap('gform_full_access');
+});
