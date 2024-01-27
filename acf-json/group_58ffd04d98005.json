@@ -6,6 +6,7 @@
             "key": "field_58ffd0598fe5f",
             "label": "Hero Content",
             "name": "hero_content",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -39,5 +40,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613079565
+    "show_in_rest": 0,
+    "modified": 1706316009
 }
