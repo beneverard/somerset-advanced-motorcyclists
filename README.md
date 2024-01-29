@@ -1,6 +1,6 @@
 # Somerset Advanced Motorcyclists
 
-Version: 1.1.1
+Version: 1.1.3
 
 The WordPress theme for the Somerset Advanced Motorcyclists website.
 
