@@ -6,6 +6,7 @@
             "key": "field_5be4a480bd626",
             "label": "Sidebar Boxes",
             "name": "sidebar_boxes",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -20,11 +21,13 @@
             "max": 0,
             "layout": "block",
             "button_label": "Add Sidebar Box",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5be4a495bd627",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -38,12 +41,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5be4a480bd626"
                 },
                 {
                     "key": "field_5be4a49bbd628",
                     "label": "Content",
                     "name": "content",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 1,
@@ -57,12 +62,14 @@
                     "tabs": "visual",
                     "toolbar": "basic",
                     "media_upload": 0,
-                    "delay": 0
+                    "delay": 0,
+                    "parent_repeater": "field_5be4a480bd626"
                 },
                 {
                     "key": "field_5be4a4acbd629",
                     "label": "Button",
                     "name": "button",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -72,7 +79,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_5be4a480bd626"
                 }
             ]
         }
@@ -94,5 +102,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613079547
+    "show_in_rest": 0,
+    "modified": 1706368388
 }

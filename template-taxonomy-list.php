@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
- * template-taxonomy-list.php 
- * 
+ * template-taxonomy-list.php
+ *
  * The template for displaying all terms within a taxonomy
  * Add a page with the same slug as the taxonomy slug, set
  * the page template as this file.
@@ -14,23 +14,22 @@
 
 <?php get_header(); ?>
 
-	<?php
+    <?php
 
-		the_post();
+        the_post();
 
-		$taxonomy = basename(get_the_permalink());
-		$terms = get_terms($taxonomy);
+        $taxonomy = basename(get_the_permalink());
+        $terms = get_terms($taxonomy);
 
-	?>
+    ?>
 
-	<h1><?php the_title(); ?></h1>
+    <h1><?php the_title(); ?></h1>
 
-	<?php foreach ( $terms as $term ) : ?>
+    <?php foreach ($terms as $term) : ?>
+        <h5>
+            <a href="<?php echo get_term_link(intval($term->term_id), $taxonomy); ?>"><?php echo $term->name; ?></a>
+        </h5>
 
-		<h5>
-			<a href="<?php echo get_term_link(intval($term->term_id), $taxonomy); ?>"><?php echo $term->name; ?></a>
-		</h5>
-
-	<?php endforeach; ?>
+    <?php endforeach; ?>
 
 <?php get_footer(); ?>

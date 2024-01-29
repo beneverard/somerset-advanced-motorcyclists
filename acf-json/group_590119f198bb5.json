@@ -6,6 +6,7 @@
             "key": "field_590119f8ae959",
             "label": "Frequently Asked Questions",
             "name": "frequently_asked_questions",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
                     "key": "field_59011a05ae95a",
                     "label": "Question",
                     "name": "question",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -38,12 +40,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_590119f8ae959"
                 },
                 {
                     "key": "field_59011a0dae95b",
                     "label": "Answer",
                     "name": "answer",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 1,
@@ -57,9 +61,11 @@
                     "placeholder": "",
                     "maxlength": "",
                     "rows": 3,
-                    "new_lines": "wpautop"
+                    "new_lines": "wpautop",
+                    "parent_repeater": "field_590119f8ae959"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -81,5 +87,6 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1613079566
+    "show_in_rest": 0,
+    "modified": 1706316017
 }

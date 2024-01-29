@@ -6,6 +6,7 @@
             "key": "field_6025a6409ca92",
             "label": "Taster Ride Panel",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_6025a6539ca93",
             "label": "Heading",
             "name": "taster_ride_panel_heading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -41,6 +43,7 @@
             "key": "field_6025a6b19ca94",
             "label": "Content",
             "name": "taster_ride_panel_content",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -60,6 +63,7 @@
             "key": "field_6025a6bd9ca95",
             "label": "Link",
             "name": "taster_ride_panel_link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 1,
@@ -89,5 +93,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613080284
+    "show_in_rest": 0,
+    "modified": 1706315998
 }

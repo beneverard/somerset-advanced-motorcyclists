@@ -6,6 +6,7 @@
             "key": "field_59050d7f112ac",
             "label": "Gallery",
             "name": "gallery",
+            "aria-label": "",
             "type": "gallery",
             "instructions": "",
             "required": 0,
@@ -47,5 +48,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613079564
+    "show_in_rest": 0,
+    "modified": 1706315977
 }

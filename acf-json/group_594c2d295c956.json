@@ -6,6 +6,7 @@
             "key": "field_594c2d380f36a",
             "label": "Files",
             "name": "files",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
                     "key": "field_594c2d480f36b",
                     "label": "Label",
                     "name": "label",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -38,12 +40,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_594c2d380f36a"
                 },
                 {
                     "key": "field_594c2d520f36d",
                     "label": "File",
                     "name": "file",
+                    "aria-label": "",
                     "type": "file",
                     "instructions": "",
                     "required": 1,
@@ -57,9 +61,11 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_594c2d380f36a"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -67,7 +73,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "default"
+                "value": "template-download-page.php"
             }
         ]
     ],
@@ -79,5 +85,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1613079567
+    "show_in_rest": 0,
+    "modified": 1706316035
 }

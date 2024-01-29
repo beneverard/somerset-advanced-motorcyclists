@@ -1,4 +1,6 @@
-<?php // functions/template.php
+<?php
+
+// functions/template.php
 
 
  //***********
@@ -8,23 +10,24 @@
  * checks to see if there is a 'next' page available
  * @return boolean
  */
-function has_next_page() {
+function has_next_page()
+{
 
-	global $wp_query;
+    global $wp_query;
 
-	$max_pages	= $wp_query->max_num_pages;
-	$page		= ( get_query_var('paged') == 0 ? 1 : get_query_var('paged') );
+    $max_pages  = $wp_query->max_num_pages;
+    $page       = ( get_query_var('paged') == 0 ? 1 : get_query_var('paged') );
 
-	return ( $page != $max_pages );
-
+    return ( $page != $max_pages );
 }
 
 /**
  * gets the current page number
  * @return int
  */
-function get_page_number() {
-	return get_query_var('paged') ? get_query_var('paged') : 1;
+function get_page_number()
+{
+    return get_query_var('paged') ? get_query_var('paged') : 1;
 }
 
 
@@ -35,15 +38,17 @@ function get_page_number() {
  * returns the slug from the current post
  * @return string
  */
-function get_the_slug() {
-	return basename(get_permalink());
+function get_the_slug()
+{
+    return basename(get_permalink());
 }
 
 /**
  * echos the slig from the current post
  */
-function the_slug() {
-	echo get_the_slug();
+function the_slug()
+{
+    echo get_the_slug();
 }
 
 
@@ -55,20 +60,20 @@ function the_slug() {
  * @param  int $id
  * @return array
  */
-function get_child_pages($id = NULL) {
+function get_child_pages($id = null)
+{
 
-	if ( empty($id) ) {
-		$id = get_the_ID();
-	}
+    if (empty($id)) {
+        $id = get_the_ID();
+    }
 
-	return new WP_Query(
-		array(
-			'post_type'			=> 'page',
-			'post_parent'		=> $id,
-			'posts_per_page'	=> -1
-		)
-	);
-
+    return new WP_Query(
+        array(
+            'post_type'         => 'page',
+            'post_parent'       => $id,
+            'posts_per_page'    => -1
+        )
+    );
 }
 
 /**
@@ -76,15 +81,15 @@ function get_child_pages($id = NULL) {
  * @param  int $id
  * @return array
  */
-function get_post_by_id($id) {
+function get_post_by_id($id)
+{
 
-	return new WP_Query(
-		array(
-			'post_type'	=> 'any',
-			'p'			=> $id
-		)
-	);
-
+    return new WP_Query(
+        array(
+            'post_type' => 'any',
+            'p'         => $id
+        )
+    );
 }
 
 /**
@@ -92,15 +97,15 @@ function get_post_by_id($id) {
  * @param  string $post_type
  * @return array
  */
-function get_all($post_type) {
+function get_all($post_type)
+{
 
-	return new WP_Query(
-		array(
-			'post_type'			=> $post_type,
-			'posts_per_page'	=> -1
-		)
-	);
-
+    return new WP_Query(
+        array(
+            'post_type'         => $post_type,
+            'posts_per_page'    => -1
+        )
+    );
 }
 
 
@@ -114,42 +119,39 @@ function get_all($post_type) {
  * @param  array $array
  * @return array
  */
-function array_multi_implode($standard_glue, $last_nodes_glue, $array) {
+function array_multi_implode($standard_glue, $last_nodes_glue, $array)
+{
 
-	$length = count($array);
+    $length = count($array);
 
-	if ( $length > 1 ) {
+    if ($length > 1) {
+        $array[$length - 2] = $array[$length - 2] . $last_nodes_glue . $array[$length - 1];
 
-		$array[$length - 2] = $array[$length - 2] . $last_nodes_glue . $array[$length - 1];
+        unset($array[$length - 1]);
+    }
 
-		unset($array[$length - 1]);
-
-	}
-
-	return implode($standard_glue, $array);
-
+    return implode($standard_glue, $array);
 }
 
 /**
  * sorts WP posts array by date
  * @return (array) sorted array of WP psots
  */
-function sort_posts_by_date($posts) {
+function sort_posts_by_date($posts)
+{
 
-	usort($posts, function($a, $b) {
+    usort($posts, function ($a, $b) {
 
-		// if the values are the same don't re-order
-		if ( $a == $b ) {
-			return 0;
-		}
+        // if the values are the same don't re-order
+        if ($a == $b) {
+            return 0;
+        }
 
-		// re-order the preferred larger value
-		return ( strtotime($a->post_date) > strtotime($b->post_date) ) ? -1 : 1;
+        // re-order the preferred larger value
+        return ( strtotime($a->post_date) > strtotime($b->post_date) ) ? -1 : 1;
+    });
 
-	});
-
-	return $posts;
-
+    return $posts;
 }
 
 /**
@@ -158,23 +160,23 @@ function sort_posts_by_date($posts) {
  * @param  string $name
  * @param  array $posts
  */
-function get_posts_template($slug, $name = '', $posts = NULL) {
+function get_posts_template($slug, $name = '', $posts = null)
+{
 
-	$templates = array();
+    $templates = array();
 
-	if ( ! empty($name) ) {
-		$templates[] = "{$slug}-{$name}.php";
-	}
+    if (! empty($name)) {
+        $templates[] = "{$slug}-{$name}.php";
+    }
 
-	$templates[] = "{$slug}.php";
+    $templates[] = "{$slug}.php";
 
-	if ( $posts === NULL ) {
-		global $wp_query;
-		$posts = $wp_query->posts;
-	}
+    if ($posts === null) {
+        global $wp_query;
+        $posts = $wp_query->posts;
+    }
 
-	include(locate_template($templates));
-
+    include(locate_template($templates));
 }
 
 /**
@@ -183,18 +185,18 @@ function get_posts_template($slug, $name = '', $posts = NULL) {
  * @param  integer $index
  * @return boolean
  */
-function load_post($posts, $index) {
+function load_post($posts, $index)
+{
 
-	global $post;
+    global $post;
 
-	if ( ! isset($posts[$index]) ) {
-		return FALSE;
-	}
+    if (! isset($posts[$index])) {
+        return false;
+    }
 
-	setup_postdata($post = $posts[$index]);
+    setup_postdata($post = $posts[$index]);
 
-	return TRUE;
-
+    return true;
 }
 
 /**
@@ -203,55 +205,54 @@ function load_post($posts, $index) {
  * @param  integer $columns
  * @return array
  */
-function array_columns($array, $columns = 2) {
+function array_columns($array, $columns = 2)
+{
 
-	$output_array = array();
-	$counter = 0;
+    $output_array = array();
+    $counter = 0;
 
-	foreach ( $array as $key => $value ) {
+    foreach ($array as $key => $value) {
+        $output_array[$counter][$key] = $value;
 
-		$output_array[$counter][$key] = $value;
+        if ($counter++ >= ($columns - 1)) {
+            $counter = 0;
+        }
+    }
 
-		if ( $counter++ >= ($columns - 1) ) {
-			$counter = 0;
-		}
-
-	}
-
-	return $output_array;
-
+    return $output_array;
 }
 
 /**
- * Includes partial templates, similar to get_template_part() * 
+ * Includes partial templates, similar to get_template_part() *
  * @param  string $collection
  * @param  string $object
  * @param  array  $options
  */
-function get_partial($collection, $object = NULL, $options = array()) {
+function get_partial($collection, $object = null, $options = array())
+{
 
-	$paths = array();
+    $paths = array();
 
-	// if $object has been specified, create add the full path to the array
-	if ( $object !== NULL ) {
-		$paths[] = implode('/', ['partials', $collection, $object]) . '.php';
-	}
+    // if $object has been specified, create add the full path to the array
+    if ($object !== null) {
+        $paths[] = implode('/', ['partials', $collection, $object]) . '.php';
+    }
 
-	// add the "default" fallback path to tge array
-	$paths[] = implode('/', ['partials', $collection, 'default']) . '.php';
+    // add the "default" fallback path to tge array
+    $paths[] = implode('/', ['partials', $collection, 'default']) . '.php';
 
-	include(locate_template($paths));
-
+    include(locate_template($paths));
 }
 
 /**
  * Returns an array of merge partial options
- * @param  array $options 
+ * @param  array $options
  * @param  array $defaults
  * @return array
  */
-function get_partial_options($options = array(), $defaults = array()) {
-	return (object) array_merge($defaults, $options);
+function get_partial_options($options = array(), $defaults = array())
+{
+    return (object) array_merge($defaults, $options);
 }
 
 /**
@@ -260,14 +261,14 @@ function get_partial_options($options = array(), $defaults = array()) {
  * @param  integer $length
  * @return string
  */
-function get_substr($string, $length) {
+function get_substr($string, $length)
+{
 
-	if ( strlen($string) > $length ) {
-		return $string = trim(substr($string, 0, $length)) . '&hellip;';
-	}
+    if (strlen($string) > $length) {
+        return $string = trim(substr($string, 0, $length)) . '&hellip;';
+    }
 
-	return $string;
-
+    return $string;
 }
 
 /**
@@ -275,6 +276,7 @@ function get_substr($string, $length) {
  * @param  string $string
  * @param  integer $length
  */
-function the_substr($string, $length) {
-	echo get_substr($string, $length);
+function the_substr($string, $length)
+{
+    echo get_substr($string, $length);
 }

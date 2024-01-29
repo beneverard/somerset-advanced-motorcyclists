@@ -8,45 +8,44 @@
 
 <?php get_header(); ?>
 
-	<?php the_post(); ?>
+    <?php the_post(); ?>
 
-	<main class="two-columns">
+    <main class="two-columns">
 
-		<article>
+        <article>
 
-			<?php if ( ! post_password_required($post) ) : ?>
+            <?php if (! post_password_required($post)) : ?>
+                <?php the_content(); ?>
 
-				<?php the_content(); ?>
+                <?php if (get_the_content()) : ?>
+                    <hr />
+                <?php endif; ?>
 
-				<?php if ( get_the_content() ) : ?>
-					<hr />
-				<?php endif; ?>
+                <?php if (have_rows('files')) : ?>
+                    <?php while (have_rows('files')) :
+                        the_row(); ?>
 
-				<?php if ( have_rows('files') ) : ?>
+                        <div class="file">
+                            <h3><?php the_sub_field('label'); ?></h3>
+                            <p><a href="<?php echo get_sub_field('file')['url']; ?>">Download</a></p>
+                        </div>
 
-					<?php while ( have_rows('files') ) : the_row(); ?>
+                    <?php endwhile; ?>
 
-						<div class="file">
-							<h3><?php the_sub_field('label'); ?></h3>
-							<p><a href="<?php echo get_sub_field('file')['url']; ?>">Download</a></p>
-						</div>
+                <?php endif; ?>
 
-					<?php endwhile; ?>
+            <?php else : ?>
+                <?php echo get_the_password_form(); ?>
+            <?php endif; ?>
 
-				<?php endif; ?>
+        </article>
 
-			<?php else : ?>
-				<?php echo get_the_password_form(); ?>
-			<?php endif; ?>
+        <aside>
+            <?php get_partial('panels', 'taster-ride'); ?>
+            <?php get_partial('panels', 'social'); ?>
+            <?php get_partial('panels', 'helpful-links'); ?>
+        </aside>
 
-		</article>
-
-		<aside>
-			<?php get_partial('panels', 'taster-ride'); ?>
-			<?php get_partial('panels', 'social'); ?>
-			<?php get_partial('panels', 'helpful-links'); ?>
-		</aside>
-
-	</main>
+    </main>
 
 <?php get_footer(); ?>

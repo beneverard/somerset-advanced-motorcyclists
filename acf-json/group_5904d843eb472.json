@@ -6,6 +6,7 @@
             "key": "field_5904d88079dc6",
             "label": "Full Chat Editions",
             "name": "full_chat_editions",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
                     "key": "field_5904d89579dc7",
                     "label": "Name",
                     "name": "name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 1,
@@ -38,12 +40,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5904d88079dc6"
                 },
                 {
                     "key": "field_5904d89d79dc8",
                     "label": "Cover Image",
                     "name": "cover_image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 1,
@@ -62,12 +66,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5904d88079dc6"
                 },
                 {
                     "key": "field_5904d8b179dc9",
                     "label": "Download",
                     "name": "download",
+                    "aria-label": "",
                     "type": "file",
                     "instructions": "",
                     "required": 1,
@@ -81,9 +87,11 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5904d88079dc6"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -95,7 +103,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": -1,
     "position": "normal",
     "style": "seamless",
     "label_placement": "top",
@@ -105,5 +113,6 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1613079565
+    "show_in_rest": 0,
+    "modified": 1706316026
 }
