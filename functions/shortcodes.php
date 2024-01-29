@@ -1,1 +1,3 @@
-<?php // functions/shortcodes.php
+<?php
+
+// functions/shortcodes.php

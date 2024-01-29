@@ -5,8 +5,7 @@
         <h1 class="hero__title"><?php the_title(); ?></h1>
         <?php the_field('hero_content'); ?>
 
-        <?php if ( basename(get_the_permalink()) === 'events' ) : ?>
-
+        <?php if (basename(get_the_permalink()) === 'events') : ?>
             <div class="events-legend">
                 <span><div class="event__rating" data-event-rating="green"></div> All SAM members</span>
                 <span><div class="event__rating" data-event-rating="amber"></div> Test-ready associates and test pass holders</span>
@@ -29,8 +28,7 @@
 
         <?php the_field('hero_content'); ?>
 
-        <?php if ( basename(get_the_permalink()) === 'events' ) : ?>
-
+        <?php if (basename(get_the_permalink()) === 'events') : ?>
             <div class="events-legend">
                 <span><div class="event__rating" data-event-rating="green"></div> All SAM members</span>
                 <span><div class="event__rating" data-event-rating="amber"></div> Test-ready associates and test pass holders</span>

@@ -2,33 +2,33 @@
 
 <?php get_header(); ?>
 
-	<?php the_post(); ?>
+    <?php the_post(); ?>
 
-	<main class="two-columns">
+    <main class="two-columns">
 
-		<article>
+        <article>
 
-			<?php if ( have_rows('frequently_asked_questions') ) : ?>
+            <?php if (have_rows('frequently_asked_questions')) : ?>
+                <?php while (have_rows('frequently_asked_questions')) :
+                    the_row(); ?>
 
-				<?php while ( have_rows('frequently_asked_questions') ) : the_row(); ?>
+                    <div class="faq-item">
+                        <h3><?php the_sub_field('question'); ?></h3>
+                        <?php the_sub_field('answer'); ?>
+                    </div>
 
-					<div class="faq-item">
-						<h3><?php the_sub_field('question'); ?></h3>
-						<?php the_sub_field('answer'); ?>
-					</div>
+                <?php endwhile; ?>
 
-				<?php endwhile; ?>
+            <?php endif; ?>
 
-			<?php endif; ?>
+        </article>
 
-		</article>
+        <aside>
+            <?php get_partial('panels', 'taster-ride'); ?>
+            <?php get_partial('panels', 'social'); ?>
+            <?php get_partial('panels', 'helpful-links'); ?>
+        </aside>
 
-		<aside>
-			<?php get_partial('panels', 'taster-ride'); ?>
-			<?php get_partial('panels', 'social'); ?>
-			<?php get_partial('panels', 'helpful-links'); ?>
-		</aside>
-
-	</main>
+    </main>
 
 <?php get_footer(); ?>

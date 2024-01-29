@@ -5,33 +5,32 @@
  * @param  string $event_name the name of the event, which will be prefixed with the colour level
  * @return string/null returns the colour type for this event
  */
-function getEventColour($event_name) {
+function getEventColour($event_name)
+{
 
     $colours = array('green', 'amber', 'red');
 
-    foreach ( $colours as $colour ) {
-
+    foreach ($colours as $colour) {
         // if the colour is at the start of the name, return the colour
-        if ( strpos(strtolower($event_name), $colour . ' ') === 0 ) {
+        if (strpos(strtolower($event_name), $colour . ' ') === 0) {
             return $colour;
-	}
-
+        }
     }
-
 }
 
 /**
  * Fetches the latest events from the SAM Google Calendar
  * @return void
  */
-function fetchLatestEvents() {
+function fetchLatestEvents()
+{
 
-    if ( ! defined('GOOGLE_API_KEY') ) {
+    if (! defined('GOOGLE_API_KEY')) {
         throw new Exception('Google API not set');
         return;
     }
 
-    if ( ! class_exists('Google_Client') ) {
+    if (! class_exists('Google_Client')) {
         throw new Exception('Google API class does not exist');
         return;
     }
@@ -47,9 +46,9 @@ function fetchLatestEvents() {
     $optParams = array(
         'maxResults' => 2500,
         'orderBy' => 'startTime',
-        'singleEvents' => TRUE,
+        'singleEvents' => true,
         'timeMin' => date('c'),
-		'timeMax' => date('c', strtotime('+1 year'))
+        'timeMax' => date('c', strtotime('+1 year'))
     );
 
     // attempt to fetch the calendar events
@@ -79,20 +78,19 @@ function fetchLatestEvents() {
 
     // add each event to the events table
     foreach ($results->getItems() as $event) {
-
         // don't proceed to save when the name (summary) is empty
-        if ( empty($event->summary) ) {
+        if (empty($event->summary)) {
             continue;
         }
 
-		// set the name based on the summary, replacing any emdash elements for normal dashes
-		$name = str_replace('–', '-', $event->summary);
+        // set the name based on the summary, replacing any emdash elements for normal dashes
+        $name = str_replace('–', '-', $event->summary);
 
         // fetch the colour level for this event
         $colour = getEventColour($name);
 
         // if a colour exists, remove it from the event name
-        if ( $colour ) {
+        if ($colour) {
             $name = substr($name, strlen($colour) + 3);
         }
 
@@ -106,12 +104,9 @@ function fetchLatestEvents() {
             'start' => ! empty($event->start->dateTime) ? $event->start->dateTime : $event->start->date,
             'end' => ! empty($event->end->dateTime) ? $event->end->dateTime : $event->end->date
         ]);
-
     }
-
 }
 
-if ( isset($_GET['reset_events']) ) {
-	fetchLatestEvents();
+if (isset($_GET['reset_events'])) {
+    fetchLatestEvents();
 }
-
